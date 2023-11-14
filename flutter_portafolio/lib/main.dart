@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_portafolio/src/my_web_page.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -20,6 +22,17 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       home: const MyWebPage(),
+      scrollBehavior: MyCustomScrollBehavior(),
     ));
   }
+}
+
+class MyCustomScrollBehavior extends MaterialScrollBehavior {
+  @override
+  Set<PointerDeviceKind> get dragDevices => {
+        PointerDeviceKind.touch,
+        PointerDeviceKind.mouse,
+        PointerDeviceKind.stylus,
+        PointerDeviceKind.unknown,
+      };
 }
