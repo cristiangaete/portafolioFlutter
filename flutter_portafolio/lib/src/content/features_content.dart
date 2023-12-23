@@ -85,32 +85,33 @@ class FeaturesContentResponsive extends StatelessWidget {
                   // ),
                   // SizedBox(width: 20),
                   _Card(
-                      localImage: 'assets/images/map.jpg',
-                      text: ' WebMapping U de Chile',
-                      networkImage: 'assets/images/js.png',
-                      networkImage2: 'assets/images/css.png'),
+                    localImage: 'assets/images/map.jpg',
+                    text: ' WebMapping U de Chile',
+                    networkImage: 'assets/images/js.png',
+                    // networkImage2: 'assets/images/css.png'
+                  ),
 
-                  // _Card(
-                  //     localImage: 'assets/images/flutter0.png',
-                  //     text:
-                  //         'Crud Spring Boot con servicios de correos y exportar a excel',
-                  //     networkImage: 'asd'),
-                  // _Card(
-                  //     localImage: 'assets/images/flutterLogo.png',
-                  //     text: 'Portafolio Flutter',
-                  //     networkImage: 'asd'),
-                  // _Card(
-                  //     localImage: 'assets/images/dj.png',
-                  //     text: 'hola',
-                  //     networkImage: 'asd'),
-                  // _Card(
-                  //     localImage: 'assets/images/dj.png',
-                  //     text: 'hola',
-                  //     networkImage: 'asd'),
-                  // _Card(
-                  //     localImage: 'assets/images/dj.png',
-                  //     text: 'hola',
-                  //     networkImage: 'asd'),
+                  _Card(
+                      localImage: 'assets/images/flutter0.png',
+                      text:
+                          'Crud Spring Boot con servicios de correos y exportar a excel',
+                      networkImage: 'asd'),
+                  _Card(
+                      localImage: 'assets/images/flutterLogo.png',
+                      text: 'Portafolio Flutter',
+                      networkImage: 'asd'),
+                  _Card(
+                      localImage: 'assets/images/dj.png',
+                      text: 'hola',
+                      networkImage: 'asd'),
+                  _Card(
+                      localImage: 'assets/images/dj.png',
+                      text: 'hola',
+                      networkImage: 'asd'),
+                  _Card(
+                      localImage: 'assets/images/dj.png',
+                      text: 'hola',
+                      networkImage: 'asd'),
                 ],
               ),
             ),
@@ -125,7 +126,7 @@ class _Card extends StatelessWidget {
   final String localImage;
   final String? text;
   final String? networkImage;
-  final String? networkImage2;
+  // final String? networkImage2;
   // final String? link1;
   // final String? link2;
   const _Card({
@@ -133,7 +134,7 @@ class _Card extends StatelessWidget {
     required this.localImage,
     this.text,
     this.networkImage,
-    this.networkImage2,
+    // this.networkImage2,
     // required this.link1,
     // required this.link2
   });
@@ -192,13 +193,13 @@ class _Card extends StatelessWidget {
                     ),
                     SizedBox(width: 20),
                     ClipOval(
-                      child: Image.asset(
-                        networkImage2!,
-                        width: 30,
-                        height: 30,
-                        fit: BoxFit.cover,
-                      ),
-                    )
+                        // child: Image.asset(
+                        // networkImage2!,
+                        // width: 30,
+                        // height: 30,
+                        // fit: BoxFit.cover,
+                        // ),
+                        )
                   ],
                 ),
               )
