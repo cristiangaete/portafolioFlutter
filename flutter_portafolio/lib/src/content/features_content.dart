@@ -26,97 +26,86 @@ class FeaturesContentResponsive extends StatelessWidget {
       'assets/images/css.png'
     ];
 
-    return Container(
-      child: const Padding(
-        padding: EdgeInsets.symmetric(vertical: 48, horizontal: 24),
-        child: Column(
-          children: [
-            Padding(
-              padding: EdgeInsets.only(top: 20.0, left: 20.0),
-              child: Align(
-                alignment: Alignment.topLeft,
-                child: Text(
-                  'Proyectos',
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 40),
+    return const Padding(
+      padding: EdgeInsets.symmetric(vertical: 48, horizontal: 24),
+      child: Column(
+        children: [
+          Padding(
+            padding: EdgeInsets.only(top: 20.0, left: 20.0),
+            child: Align(
+              alignment: Alignment.topLeft,
+              child: Text(
+                'Proyectos',
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 40),
+              ),
+            ),
+          ),
+          SizedBox(
+            height: 24,
+          ),
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Row(
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                // ElevatedButton(
+                //   onPressed: () {
+                //     // Evento al hacer clic en la flecha hacia la izquierda
+                //     Scrollable.ensureVisible(
+                //       context,
+                //       alignment: 0.0,
+                //       duration: Duration(milliseconds: 500),
+                //     );
+                //     // _scrollController.animateTo(
+                //     //   _scrollController.offset - 300,
+                //     //   duration: Duration(milliseconds: 500),
+                //     //   curve: Curves.ease,
+                //     // );
+                //   },
+                //   child: Icon(Icons.arrow_back), // Flecha hacia la izquierda
+                // ),
+                // SizedBox(width: 20),
+                // ElevatedButton(
+                //   onPressed: () {
+                //     // Evento al hacer clic en la flecha hacia la derecha
+                //     Scrollable.ensureVisible(
+                //       context,
+                //       alignment: 1.0,
+                //       duration: Duration(milliseconds: 500),
+                //     );
+                //     // _scrollController.animateTo(
+                //     //   _scrollController.offset + 300,
+                //     //   duration: Duration(milliseconds: 500),
+                //     //   curve: Curves.ease,
+                //     // );
+                //   },
+                //   child: Icon(Icons.arrow_forward), // Flecha hacia la derecha
+                // ),
+                // SizedBox(width: 20),
+                _Card(
+                  localImage: 'assets/images/map.jpg',
+                  text: ' WebMapping U de Chile api google maps',
+                  networkImage: 'assets/images/js.png',
+                  // networkImage2: 'assets/images/css.png'
                 ),
-              ),
-            ),
-            SizedBox(
-              height: 24,
-            ),
-            SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Row(
-                mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  // ElevatedButton(
-                  //   onPressed: () {
-                  //     // Evento al hacer clic en la flecha hacia la izquierda
-                  //     Scrollable.ensureVisible(
-                  //       context,
-                  //       alignment: 0.0,
-                  //       duration: Duration(milliseconds: 500),
-                  //     );
-                  //     // _scrollController.animateTo(
-                  //     //   _scrollController.offset - 300,
-                  //     //   duration: Duration(milliseconds: 500),
-                  //     //   curve: Curves.ease,
-                  //     // );
-                  //   },
-                  //   child: Icon(Icons.arrow_back), // Flecha hacia la izquierda
-                  // ),
-                  // SizedBox(width: 20),
-                  // ElevatedButton(
-                  //   onPressed: () {
-                  //     // Evento al hacer clic en la flecha hacia la derecha
-                  //     Scrollable.ensureVisible(
-                  //       context,
-                  //       alignment: 1.0,
-                  //       duration: Duration(milliseconds: 500),
-                  //     );
-                  //     // _scrollController.animateTo(
-                  //     //   _scrollController.offset + 300,
-                  //     //   duration: Duration(milliseconds: 500),
-                  //     //   curve: Curves.ease,
-                  //     // );
-                  //   },
-                  //   child: Icon(Icons.arrow_forward), // Flecha hacia la derecha
-                  // ),
-                  // SizedBox(width: 20),
-                  _Card(
-                    localImage: 'assets/images/map.jpg',
-                    text: ' WebMapping U de Chile',
-                    networkImage: 'assets/images/js.png',
-                    // networkImage2: 'assets/images/css.png'
-                  ),
+                _Card(
+                    localImage: 'assets/images/flutterLogo.png',
+                    text: 'Portafolio Flutter',
+                    networkImage: 'assets/images/dart.png'),
 
-                  _Card(
-                      localImage: 'assets/images/flutter0.png',
-                      text:
-                          'Crud Spring Boot con servicios de correos y exportar a excel',
-                      networkImage: 'asd'),
-                  _Card(
-                      localImage: 'assets/images/flutterLogo.png',
-                      text: 'Portafolio Flutter',
-                      networkImage: 'asd'),
-                  _Card(
-                      localImage: 'assets/images/dj.png',
-                      text: 'hola',
-                      networkImage: 'asd'),
-                  _Card(
-                      localImage: 'assets/images/dj.png',
-                      text: 'hola',
-                      networkImage: 'asd'),
-                  _Card(
-                      localImage: 'assets/images/dj.png',
-                      text: 'hola',
-                      networkImage: 'asd'),
-                ],
-              ),
+                _Card(
+                    localImage: 'assets/images/flutter0.png',
+                    text: 'Crud Spring Boot con servicios de correos, CSV',
+                    networkImage: 'assets/images/java.png'),
+                _Card(
+                    localImage: 'assets/images/dj.png',
+                    text: 'Auth django',
+                    networkImage: 'assets/images/python.png'),
+              ],
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
@@ -158,21 +147,20 @@ class _Card extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
               Container(
-                height: 200.0,
+                height: 300.0,
+                width: 400.0,
                 child: Image(
                   image: AssetImage(localImage),
                   fit: BoxFit.cover,
                 ),
               ),
-              Container(
-                child: Align(
-                  alignment: Alignment.topLeft,
-                  child: Text(
-                    'Proyecto: ' + text!,
-                    style: const TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 15,
-                    ),
+              Align(
+                alignment: Alignment.topLeft,
+                child: Text(
+                  'Proyecto: ${text!}',
+                  style: const TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 15,
                   ),
                 ),
               ),
@@ -186,8 +174,8 @@ class _Card extends StatelessWidget {
                     ClipOval(
                       child: Image.asset(
                         networkImage!,
-                        width: 24,
-                        height: 24,
+                        width: 35,
+                        height: 35,
                         fit: BoxFit.cover,
                       ),
                     ),

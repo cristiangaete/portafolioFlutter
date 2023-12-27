@@ -41,6 +41,7 @@ dependencies:
   universal_html: ^2.2.4
   simple_icons: ^7.10.0
   flutter_carousel_widget: ^2.1.2
+  flutter_screenutil: ^5.9.0
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -72,6 +73,7 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/images/
+    - assets/images/certificaciones/
     - assets/pdf/
     # - images/a_dot_ham.jpeg
 

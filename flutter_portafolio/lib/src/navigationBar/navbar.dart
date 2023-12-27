@@ -64,11 +64,11 @@ class DesktopNavbar extends HookConsumerWidget {
               NavBarBottom(
                   ontap: () =>
                       ref.read(currentPageProvider.notifier).state = featureKey,
-                  text: 'Features'),
+                  text: 'Proyectos'),
               NavBarBottom(
                   ontap: () => ref.read(currentPageProvider.notifier).state =
                       screenshotsKey,
-                  text: 'Screenshots'),
+                  text: 'certificaciones'),
               // NavBarBottom(
               //     ontap: () =>
               //         ref.read(currentPageProvider.notifier).state = contactKey,
@@ -79,7 +79,7 @@ class DesktopNavbar extends HookConsumerWidget {
                   style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.blue.shade800,
                       foregroundColor: Colors.white),
-                  child: Text('Contact'))
+                  child: Text('Contacto'))
             ],
           )),
     );
@@ -130,11 +130,11 @@ class MobileNavbar extends HookConsumerWidget {
               //       containerHeight.value = 0;
               //     },
               //     text: 'Contact'),
-               ElevatedButton(
+              ElevatedButton(
                   onPressed: () {
-                      ref.read(currentPageProvider.notifier).state = contactKey;
-                      containerHeight.value = 0;
-                      },
+                    ref.read(currentPageProvider.notifier).state = contactKey;
+                    containerHeight.value = 0;
+                  },
                   style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.blue.shade800,
                       foregroundColor: Colors.white),

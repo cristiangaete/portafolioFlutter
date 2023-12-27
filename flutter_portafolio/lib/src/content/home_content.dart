@@ -6,8 +6,7 @@ import 'package:universal_html/html.dart' as html;
 
 final Uri linkedin =
     Uri.parse('https://www.linkedin.com/in/cristian-gaete-jordan-b6878b17a/');
-final Uri github =
-    Uri.parse('https://github.com/cristiangaete');
+final Uri github = Uri.parse('https://github.com/cristiangaete');
 
 class HomeContent extends ResponsiveWidget {
   const HomeContent({super.key});
@@ -60,14 +59,14 @@ class DesktopHomeContent extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
+            const Text(
               "Cristian Gaete Jordan",
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 40),
             ),
-            SizedBox(height: 24),
-            Text(
+            const SizedBox(height: 24),
+            const Text(
                 'asdsadsdjhasjkhdasjkdhasjdhjkadhjksdhasjdhadhadhakhdlajhdkjlasdhklajhdjahdjkahdlahsdjlkashdkjahdjkashdkjashdkjahdkjsadhlahdlasdhlkajdshaklj'),
-            SizedBox(height: 24),
+            const SizedBox(height: 24),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -93,10 +92,12 @@ class DesktopHomeContent extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 IconButton(
-                    onPressed: ()=>launchUrl(linkedin), icon: const Icon(SimpleIcons.linkedin)),
+                    onPressed: () => launchUrl(linkedin),
+                    icon: const Icon(SimpleIcons.linkedin)),
                 SizedBox(height: 24),
                 IconButton(
-                    onPressed: ()=> launchUrl(github), icon: const Icon(SimpleIcons.github))
+                    onPressed: () => launchUrl(github),
+                    icon: const Icon(SimpleIcons.github))
               ],
             )
           ],
@@ -114,8 +115,8 @@ class MobileHomeContent extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Text(
-            "BASIC LANDING PAGE",
+          const Text(
+            "Cristian Gaete Jordan",
             style: TextStyle(fontWeight: FontWeight.bold, fontSize: 40),
           ),
           SizedBox(height: 24),
@@ -132,16 +133,18 @@ class MobileHomeContent extends StatelessWidget {
             child: const Text('Descarga mi CV'),
           ),
           SizedBox(height: 24),
-           Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                IconButton(
-                    onPressed: ()=>launchUrl(linkedin), icon: const Icon(SimpleIcons.linkedin)),
-                SizedBox(height: 24),
-                IconButton(
-                    onPressed: ()=> launchUrl(github), icon: const Icon(SimpleIcons.github))
-              ],
-            ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              IconButton(
+                  onPressed: () => launchUrl(linkedin),
+                  icon: const Icon(SimpleIcons.linkedin)),
+              SizedBox(height: 24),
+              IconButton(
+                  onPressed: () => launchUrl(github),
+                  icon: const Icon(SimpleIcons.github))
+            ],
+          ),
           SizedBox(height: 1),
           Container(
             // width: width * .3,
@@ -158,7 +161,7 @@ class MobileHomeContent extends StatelessWidget {
                   image: AssetImage('assets/images/yo.jpg'),
                   fit: BoxFit.cover,
                 ),
-                boxShadow: [
+                boxShadow: const [
                   BoxShadow(
                     //SOMBRA
                     color: Color(0xffA4A4A4),
@@ -178,4 +181,3 @@ void _descargarPDF(String filePath) {
     ..setAttribute('download', 'cvCristianGaete.pdf')
     ..click();
 }
-
