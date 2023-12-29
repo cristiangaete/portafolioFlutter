@@ -40,8 +40,8 @@ dependencies:
   webview_flutter: ^4.2.1
   universal_html: ^2.2.4
   simple_icons: ^7.10.0
-  flutter_carousel_widget: ^2.1.2
-  flutter_screenutil: ^5.9.0
+  full_screen_image: ^2.0.0
+  insta_image_viewer: ^1.0.2
 
 
   # The following adds the Cupertino Icons font to your application.

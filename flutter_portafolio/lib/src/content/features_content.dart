@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_portafolio/src/widget/responsive_widget.dart';
+import 'package:simple_icons/simple_icons.dart';
+import 'package:url_launcher/url_launcher.dart';
+
+final Uri gitJS = Uri.parse('https://github.com/cristiangaete/MapaJs');
+final Uri github = Uri.parse('https://github.com/cristiangaete');
 
 class FeaturesContent extends ResponsiveWidget {
   const FeaturesContent({super.key});
@@ -86,22 +91,32 @@ class FeaturesContentResponsive extends StatelessWidget {
                 _Card(
                   localImage: 'assets/images/map.jpg',
                   text: ' WebMapping U de Chile api google maps',
-                  networkImage: 'assets/images/js.png',
+                  networkImage: SimpleIcons.javascript,
+                  lenguaje: "JavaScript",
+                  git: 'https://github.com/cristiangaete/MapaJs',
                   // networkImage2: 'assets/images/css.png'
                 ),
                 _Card(
-                    localImage: 'assets/images/flutterLogo.png',
-                    text: 'Portafolio Flutter',
-                    networkImage: 'assets/images/dart.png'),
-
+                  localImage: 'assets/images/flutterLogo.png',
+                  text: 'Portafolio Flutter',
+                  networkImage: SimpleIcons.flutter,
+                  lenguaje: "Flutter",
+                  git: "https://github.com/cristiangaete/portafolioFlutter",
+                ),
                 _Card(
-                    localImage: 'assets/images/flutter0.png',
-                    text: 'Crud Spring Boot con servicios de correos, CSV',
-                    networkImage: 'assets/images/java.png'),
+                  localImage: 'assets/images/flutter0.png',
+                  text: 'Crud Spring Boot con servicios de correos, CSV',
+                  networkImage: SimpleIcons.springboot,
+                  lenguaje: "Spring Boot",
+                  git: "https://github.com/cristiangaete/crudSpringBoot",
+                ),
                 _Card(
-                    localImage: 'assets/images/dj.png',
-                    text: 'Auth django',
-                    networkImage: 'assets/images/python.png'),
+                  localImage: 'assets/images/dj.png',
+                  text: 'Auth django',
+                  networkImage: SimpleIcons.django,
+                  lenguaje: "Django",
+                  git: "https://github.com/cristiangaete/djangoLogin",
+                ),
               ],
             ),
           ),
@@ -114,7 +129,9 @@ class FeaturesContentResponsive extends StatelessWidget {
 class _Card extends StatelessWidget {
   final String localImage;
   final String? text;
-  final String? networkImage;
+  final IconData? networkImage;
+  final String? lenguaje;
+  final String? git;
   // final String? networkImage2;
   // final String? link1;
   // final String? link2;
@@ -123,6 +140,8 @@ class _Card extends StatelessWidget {
     required this.localImage,
     this.text,
     this.networkImage,
+    this.lenguaje,
+    this.git,
     // this.networkImage2,
     // required this.link1,
     // required this.link2
@@ -171,14 +190,26 @@ class _Card extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    ClipOval(
-                      child: Image.asset(
-                        networkImage!,
-                        width: 35,
-                        height: 35,
-                        fit: BoxFit.cover,
+                    Tooltip(
+                      message: lenguaje,
+                      child: Icon(networkImage),
+                    ),
+                    Tooltip(
+                      message: "Github",
+                      child: IconButton(
+                        icon: const Icon(SimpleIcons.github),
+                        onPressed: () => launchUrl(Uri.parse(git!)),
                       ),
                     ),
+
+                    // ClipOval(
+                    //   child: Image.asset(
+                    //     networkImage!,
+                    //     width: 35,
+                    //     height: 35,
+                    //     fit: BoxFit.cover,
+                    //   ),
+                    // ),
                     SizedBox(width: 20),
                     ClipOval(
                         // child: Image.asset(

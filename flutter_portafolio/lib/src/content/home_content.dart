@@ -91,13 +91,19 @@ class DesktopHomeContent extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                IconButton(
-                    onPressed: () => launchUrl(linkedin),
-                    icon: const Icon(SimpleIcons.linkedin)),
+                Tooltip(
+                  message: 'Linkedin',
+                  child: IconButton(
+                      onPressed: () => launchUrl(linkedin),
+                      icon: const Icon(SimpleIcons.linkedin)),
+                ),
                 SizedBox(height: 24),
-                IconButton(
-                    onPressed: () => launchUrl(github),
-                    icon: const Icon(SimpleIcons.github))
+                Tooltip(
+                  message: 'Github',
+                  child: IconButton(
+                      onPressed: () => launchUrl(github),
+                      icon: const Icon(SimpleIcons.github)),
+                )
               ],
             )
           ],

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_portafolio/src/widget/responsive_widget.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import 'package:full_screen_image/full_screen_image.dart';
+import 'package:insta_image_viewer/insta_image_viewer.dart';
 
 class ScreenshotsContents extends ResponsiveWidget {
   const ScreenshotsContents({super.key});
@@ -74,10 +76,16 @@ class _Image extends StatelessWidget {
       return Row(
         children: [
           const SizedBox(width: 16),
-          Image.asset(
-            width: 800,
-            height: 800,
-            image,
+          InstaImageViewer(
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(16),
+              child: Image.asset(
+                width: 800,
+                height: 800,
+                image,
+                // fit: BoxFit.cover,
+              ),
+            ),
           ),
           const SizedBox(
             width: 16,
@@ -149,10 +157,16 @@ class _ImageMobile extends StatelessWidget {
     return Row(
       children: [
         const SizedBox(width: 16),
-        Image.asset(
-          width: 500,
-          height: 500,
-          image,
+        InstaImageViewer(
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(16),
+            child: Image.asset(
+              width: 500,
+              height: 500,
+              image,
+              // fit: BoxFit.cover,
+            ),
+          ),
         ),
         const SizedBox(
           width: 16,
