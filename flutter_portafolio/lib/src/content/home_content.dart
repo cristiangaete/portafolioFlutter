@@ -1,4 +1,7 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_portafolio/src/widget/responsive_widget.dart';
 import 'package:simple_icons/simple_icons.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -19,6 +22,12 @@ class HomeContent extends ResponsiveWidget {
 }
 
 class DesktopHomeContent extends StatelessWidget {
+  SnackBar snackBar = const SnackBar(
+    content: Text("Correo copiado con éxito!"),
+    duration: Duration(milliseconds: 500),
+  );
+
+  DesktopHomeContent({super.key});
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
@@ -51,7 +60,7 @@ class DesktopHomeContent extends StatelessWidget {
                 ),
               ]),
         ),
-        SizedBox(
+        const SizedBox(
           width: 24,
         ),
         Expanded(
@@ -82,12 +91,12 @@ class DesktopHomeContent extends StatelessWidget {
                       foregroundColor: Colors.white),
                   child: const Text('Descarga mi CV'),
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 24,
                 )
               ],
             ),
-            SizedBox(height: 24),
+            const SizedBox(height: 24),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -97,7 +106,18 @@ class DesktopHomeContent extends StatelessWidget {
                       onPressed: () => launchUrl(linkedin),
                       icon: const Icon(SimpleIcons.linkedin)),
                 ),
-                SizedBox(height: 24),
+                const SizedBox(height: 24),
+                Tooltip(
+                  message: "Click para copiar mí correo electrónico",
+                  child: IconButton(
+                      onPressed: () {
+                        Clipboard.setData(const ClipboardData(
+                                text: "cristiangaetejordan@gmail.com"))
+                            .then((value) => ScaffoldMessenger.of(context)
+                                .showSnackBar(snackBar));
+                      },
+                      icon: const Icon(Icons.mail)),
+                ),
                 Tooltip(
                   message: 'Github',
                   child: IconButton(
@@ -114,6 +134,12 @@ class DesktopHomeContent extends StatelessWidget {
 }
 
 class MobileHomeContent extends StatelessWidget {
+  SnackBar snackBar = const SnackBar(
+    content: Text("Correo copiado con éxito!"),
+    duration: Duration(milliseconds: 500),
+  );
+
+  MobileHomeContent({super.key});
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -145,7 +171,19 @@ class MobileHomeContent extends StatelessWidget {
               IconButton(
                   onPressed: () => launchUrl(linkedin),
                   icon: const Icon(SimpleIcons.linkedin)),
-              SizedBox(height: 24),
+              const SizedBox(height: 24),
+              Tooltip(
+                message: "Click para copiar mí correo electrónico",
+                child: IconButton(
+                    onPressed: () {
+                      Clipboard.setData(const ClipboardData(
+                              text: "cristiangaetejordan@gmail.com"))
+                          .then((value) => ScaffoldMessenger.of(context)
+                              .showSnackBar(snackBar));
+                    },
+                    icon: const Icon(Icons.mail)),
+              ),
+              const SizedBox(height: 24),
               IconButton(
                   onPressed: () => launchUrl(github),
                   icon: const Icon(SimpleIcons.github))
@@ -161,7 +199,7 @@ class MobileHomeContent extends StatelessWidget {
             height: 350.0,
             width: 200.0,
             decoration: BoxDecoration(
-                color: Colors.yellow, //PARA PROBAR CONTAINER
+                color: Colors.white, //PARA PROBAR CONTAINER
                 borderRadius: new BorderRadius.circular(10.0),
                 image: const DecorationImage(
                   image: AssetImage('assets/images/yo.jpg'),

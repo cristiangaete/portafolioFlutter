@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+// ignore: depend_on_referenced_packages
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_portafolio/src/my_web_page.dart';
 import 'package:flutter_portafolio/src/navigationBar/navbar_bottom.dart';
@@ -62,13 +63,13 @@ class DesktopNavbar extends HookConsumerWidget {
                       ref.read(currentPageProvider.notifier).state = homeKey,
                   text: 'Home'),
               NavBarBottom(
+                  ontap: () => ref.read(currentPageProvider.notifier).state =
+                      screenshotsKey,
+                  text: 'Certificaciones'),
+              NavBarBottom(
                   ontap: () =>
                       ref.read(currentPageProvider.notifier).state = featureKey,
                   text: 'Proyectos'),
-              NavBarBottom(
-                  ontap: () => ref.read(currentPageProvider.notifier).state =
-                      screenshotsKey,
-                  text: 'certificaciones'),
               // NavBarBottom(
               //     ontap: () =>
               //         ref.read(currentPageProvider.notifier).state = contactKey,
@@ -113,17 +114,17 @@ class MobileNavbar extends HookConsumerWidget {
               ),
               NavBarBottom(
                   ontap: () {
-                    ref.read(currentPageProvider.notifier).state = featureKey;
-                    containerHeight.value = 0;
-                  },
-                  text: 'Features'),
-              NavBarBottom(
-                  ontap: () {
                     ref.read(currentPageProvider.notifier).state =
                         screenshotsKey;
                     containerHeight.value = 0;
                   },
-                  text: 'Screenshots'),
+                  text: 'Certificaciones'),
+              NavBarBottom(
+                  ontap: () {
+                    ref.read(currentPageProvider.notifier).state = featureKey;
+                    containerHeight.value = 0;
+                  },
+                  text: 'Proyectos'),
               // NavBarBottom(
               //     ontap: () {
               //       ref.read(currentPageProvider.notifier).state = contactKey;
@@ -138,7 +139,7 @@ class MobileNavbar extends HookConsumerWidget {
                   style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.blue.shade800,
                       foregroundColor: Colors.white),
-                  child: Text('Contact'))
+                  child: Text('Contacto'))
             ]),
           ),
         ),

@@ -9,7 +9,7 @@ import "package:flutter_portafolio/src/navigationBar/navbar.dart";
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 
-final homeKey =  GlobalKey();
+final homeKey = GlobalKey();
 final featureKey = GlobalKey();
 final screenshotsKey = GlobalKey();
 final contactKey = GlobalKey();
@@ -52,12 +52,13 @@ class MyWebPage extends HookConsumerWidget {
     double width = MediaQuery.of(context).size.width;
     double maxWith = width > 1200 ? 1200 : width;
 
-    ref.watch(currentPageProvider.notifier).addListener(scrollTo, fireImmediately: false);
+    ref
+        .watch(currentPageProvider.notifier)
+        .addListener(scrollTo, fireImmediately: false);
 
     return Scaffold(
       body: Center(
         child: Container(
-          
           width: maxWith,
           child: Column(
             children: [
@@ -68,8 +69,8 @@ class MyWebPage extends HookConsumerWidget {
                 child: Column(
                   children: <Widget>[
                     HomeContent(key: homeKey),
-                    FeaturesContent(key: featureKey),
                     ScreenshotsContents(key: screenshotsKey),
+                    FeaturesContent(key: featureKey),
                     ContactsContent(key: contactKey),
                   ],
                 ),
