@@ -1,9 +1,6 @@
-
-
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-
 
 class NavBarBottom extends HookConsumerWidget {
   final VoidCallback ontap;
@@ -15,10 +12,10 @@ class NavBarBottom extends HookConsumerWidget {
     final textColor = useState<Color>(Colors.black);
 
     return MouseRegion(
-      onEnter: (value){
+      onEnter: (value) {
         textColor.value = Colors.blue.shade400;
       },
-      onExit: (value){
+      onExit: (value) {
         textColor.value = Colors.black87;
       },
       child: Material(
@@ -28,16 +25,15 @@ class NavBarBottom extends HookConsumerWidget {
           child: Container(
             height: 50,
             alignment: Alignment.center,
-            margin: EdgeInsets.symmetric(horizontal: 16),
+            margin: const EdgeInsets.symmetric(horizontal: 16),
             child: Text(
               text,
               style: TextStyle(
-                fontSize: 15,
-                fontWeight: FontWeight.w600,
-                color: textColor.value
-              ),
+                  fontSize: 15,
+                  fontWeight: FontWeight.w600,
+                  color: textColor.value),
             ),
-            ),
+          ),
         ),
       ),
     );

@@ -33,13 +33,13 @@ class DesktopNavbar extends HookConsumerWidget {
       decoration: BoxDecoration(color: navBarColor, boxShadow: [
         BoxShadow(
           color: Colors.grey.withOpacity(0.5),
-          offset: Offset(0, 2),
+          offset: const Offset(0, 2),
           blurRadius: 2,
           spreadRadius: 0,
         ),
       ]),
       child: Padding(
-          padding: EdgeInsets.all(10),
+          padding: const EdgeInsets.all(10),
           child: Row(
             children: [
               Tooltip(
@@ -49,7 +49,7 @@ class DesktopNavbar extends HookConsumerWidget {
                   height: 80.0,
                 ),
               ),
-              SizedBox(width: 10.0),
+              const SizedBox(width: 10.0),
               // Text(
               //   'Cristian Gaete',
               //   style: TextStyle(
@@ -80,7 +80,7 @@ class DesktopNavbar extends HookConsumerWidget {
                   style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.blue.shade800,
                       foregroundColor: Colors.white),
-                  child: Text('Contacto'))
+                  child: const Text('Contacto'))
             ],
           )),
     );
@@ -99,8 +99,8 @@ class MobileNavbar extends HookConsumerWidget {
     return Stack(
       children: [
         AnimatedContainer(
-          duration: Duration(milliseconds: 350),
-          margin: EdgeInsets.only(top: 100.0),
+          duration: const Duration(milliseconds: 350),
+          margin: const EdgeInsets.only(top: 100.0),
           curve: Curves.ease,
           height: containerHeight.value,
           child: SingleChildScrollView(
@@ -139,21 +139,21 @@ class MobileNavbar extends HookConsumerWidget {
                   style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.blue.shade800,
                       foregroundColor: Colors.white),
-                  child: Text('Contacto'))
+                  child: const Text('Contacto'))
             ]),
           ),
         ),
         Container(
           color: navBarColor,
           child: Padding(
-              padding: EdgeInsets.all(16),
+              padding: const EdgeInsets.all(16),
               child: Row(
                 children: <Widget>[
                   Image.asset(
                     'assets/images/flutterLogo.png',
                     height: 70.0,
                   ),
-                  SizedBox(width: 10.0),
+                  const SizedBox(width: 10.0),
                   // Text(
                   //   'Cristian Gaete',
                   //   style: TextStyle(
@@ -168,7 +168,7 @@ class MobileNavbar extends HookConsumerWidget {
                         final height = containerHeight.value > 0 ? 0.0 : 240.0;
                         containerHeight.value = height;
                       },
-                      child: Icon(
+                      child: const Icon(
                         Icons.menu,
                         color: Colors.black54,
                       ),

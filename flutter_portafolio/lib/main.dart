@@ -5,7 +5,7 @@ import 'package:flutter_portafolio/src/my_web_page.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 void main() {
-  runApp(const ProviderScope(child: const MyApp()));
+  runApp(const ProviderScope(child: MyApp()));
 }
 
 class MyApp extends StatelessWidget {

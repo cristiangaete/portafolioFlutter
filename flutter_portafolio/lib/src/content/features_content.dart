@@ -26,10 +26,10 @@ class FeaturesContentResponsive extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final ScrollController _scrollController = ScrollController();
-    List<String> imageUChile = [
-      'assets/images/js.png',
-      'assets/images/css.png'
-    ];
+    // List<String> imageUChile = [
+    //   'assets/images/js.png',
+    //   'assets/images/css.png'
+    // ];
 
     return const Padding(
       padding: EdgeInsets.symmetric(vertical: 48, horizontal: 24),

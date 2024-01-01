@@ -151,7 +151,7 @@ class MobileHomeContent extends StatelessWidget {
             "Cristian Gaete Jordan",
             style: TextStyle(fontWeight: FontWeight.bold, fontSize: 40),
           ),
-          SizedBox(height: 24),
+          const SizedBox(height: 24),
           const Text(
               'asdsadsdjhasjkhdasjkdhasjdhjkadhjksdhasjdhadhadhakhdlajhdkjlasdhklajhdjahdjkahdlahsdjlkashdkjahdjkashdkjashdkjahdkjsadhlahdlasdhlkajdshaklj'),
           SizedBox(height: 24),
@@ -164,7 +164,7 @@ class MobileHomeContent extends StatelessWidget {
                 foregroundColor: Colors.white),
             child: const Text('Descarga mi CV'),
           ),
-          SizedBox(height: 24),
+          const SizedBox(height: 24),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -189,7 +189,7 @@ class MobileHomeContent extends StatelessWidget {
                   icon: const Icon(SimpleIcons.github))
             ],
           ),
-          SizedBox(height: 1),
+          const SizedBox(height: 1),
           Container(
             // width: width * .3,
             margin: const EdgeInsets.only(

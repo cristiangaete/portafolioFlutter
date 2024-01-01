@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_portafolio/src/widget/responsive_widget.dart';
-
-import 'package:full_screen_image/full_screen_image.dart';
 import 'package:insta_image_viewer/insta_image_viewer.dart';
 
 class ScreenshotsContents extends ResponsiveWidget {
@@ -150,7 +148,7 @@ class MobileHomeContent extends StatelessWidget {
 class _ImageMobile extends StatelessWidget {
   final String image;
 
-  const _ImageMobile({super.key, required this.image});
+  const _ImageMobile({required this.image});
 
   @override
   Widget build(BuildContext context) {
@@ -161,8 +159,8 @@ class _ImageMobile extends StatelessWidget {
           child: ClipRRect(
             borderRadius: BorderRadius.circular(16),
             child: Image.asset(
-              width: 500,
-              height: 500,
+              width: 450,
+              height: 450,
               image,
               // fit: BoxFit.cover,
             ),
