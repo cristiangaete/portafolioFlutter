@@ -25,7 +25,7 @@ class FeaturesContentResponsive extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final ScrollController _scrollController = ScrollController();
+    // final ScrollController _scrollController = ScrollController();
     // List<String> imageUChile = [
     //   'assets/images/js.png',
     //   'assets/images/css.png'
@@ -117,6 +117,13 @@ class FeaturesContentResponsive extends StatelessWidget {
                   lenguaje: "Django",
                   git: "https://github.com/cristiangaete/djangoLogin",
                 ),
+                _Card(
+                  localImage: 'assets/images/react.png',
+                  text: ' Django CRUD ReactJS',
+                  networkImage: SimpleIcons.react,
+                  lenguaje: "React",
+                  git: "https://github.com/cristiangaete/djangoCrudReact",
+                ),
               ],
             ),
           ),
@@ -132,9 +139,6 @@ class _Card extends StatelessWidget {
   final IconData? networkImage;
   final String? lenguaje;
   final String? git;
-  // final String? networkImage2;
-  // final String? link1;
-  // final String? link2;
   const _Card({
     super.key,
     required this.localImage,
@@ -142,9 +146,6 @@ class _Card extends StatelessWidget {
     this.networkImage,
     this.lenguaje,
     this.git,
-    // this.networkImage2,
-    // required this.link1,
-    // required this.link2
   });
 
   @override
@@ -153,19 +154,14 @@ class _Card extends StatelessWidget {
       const SizedBox(
         width: 16,
       ),
-      // Image.asset(
-      //   image,
-      //   height: 350,
-      //   width: 350,
-      // ),
-      Container(
+      SizedBox(
         width: 450,
         height: 450,
         child: Card(
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
-              Container(
+              SizedBox(
                 height: 300.0,
                 width: 400.0,
                 child: Image(
@@ -186,41 +182,39 @@ class _Card extends StatelessWidget {
               const SizedBox(
                 height: 16,
               ),
-              Container(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Tooltip(
-                      message: lenguaje,
-                      child: Icon(networkImage),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Tooltip(
+                    message: lenguaje,
+                    child: Icon(networkImage),
+                  ),
+                  Tooltip(
+                    message: "Github",
+                    child: IconButton(
+                      icon: const Icon(SimpleIcons.github),
+                      onPressed: () => launchUrl(Uri.parse(git!)),
                     ),
-                    Tooltip(
-                      message: "Github",
-                      child: IconButton(
-                        icon: const Icon(SimpleIcons.github),
-                        onPressed: () => launchUrl(Uri.parse(git!)),
-                      ),
-                    ),
+                  ),
 
-                    // ClipOval(
-                    //   child: Image.asset(
-                    //     networkImage!,
-                    //     width: 35,
-                    //     height: 35,
-                    //     fit: BoxFit.cover,
-                    //   ),
-                    // ),
-                    SizedBox(width: 20),
-                    ClipOval(
-                        // child: Image.asset(
-                        // networkImage2!,
-                        // width: 30,
-                        // height: 30,
-                        // fit: BoxFit.cover,
-                        // ),
-                        )
-                  ],
-                ),
+                  // ClipOval(
+                  //   child: Image.asset(
+                  //     networkImage!,
+                  //     width: 35,
+                  //     height: 35,
+                  //     fit: BoxFit.cover,
+                  //   ),
+                  // ),
+                  SizedBox(width: 20),
+                  ClipOval(
+                      // child: Image.asset(
+                      // networkImage2!,
+                      // width: 30,
+                      // height: 30,
+                      // fit: BoxFit.cover,
+                      // ),
+                      )
+                ],
               )
               // TextButton(
               //   child: const Text('GOT IT'),

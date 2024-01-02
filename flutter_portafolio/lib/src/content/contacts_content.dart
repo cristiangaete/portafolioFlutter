@@ -23,7 +23,7 @@ class ContactsContent extends ResponsiveWidget {
 
 class DesktopHomeContent extends StatelessWidget {
   SnackBar snackBar = const SnackBar(
-    content: Text("Correo copiado con éxito!"),
+    content: Text("¡Correo copiado con éxito!"),
     duration: Duration(milliseconds: 500),
   );
 
@@ -32,7 +32,7 @@ class DesktopHomeContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(vertical: 48, horizontal: 24),
+      padding: const EdgeInsets.symmetric(vertical: 48, horizontal: 24),
       child: Column(
         children: [
           const Padding(
@@ -109,7 +109,7 @@ class DesktopHomeContent extends StatelessWidget {
 
 class MobileHomeContent extends StatelessWidget {
   SnackBar snackBar = const SnackBar(
-    content: Text("¡Texto copiado con éxito!"),
+    content: Text("¡Correo copiado con éxito!"),
     duration: Duration(milliseconds: 500),
   );
 
@@ -191,7 +191,7 @@ class MobileHomeContent extends StatelessWidget {
 }
 
 void _descargarPDF(String filePath) {
-  final anchor = html.AnchorElement(href: filePath)
+  html.AnchorElement(href: filePath)
     ..setAttribute('download', 'cvCristianGaete.pdf')
     ..click();
 }

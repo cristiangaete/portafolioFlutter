@@ -23,7 +23,7 @@ class HomeContent extends ResponsiveWidget {
 
 class DesktopHomeContent extends StatelessWidget {
   SnackBar snackBar = const SnackBar(
-    content: Text("Correo copiado con éxito!"),
+    content: Text("¡Correo copiado con éxito!"),
     duration: Duration(milliseconds: 500),
   );
 
@@ -33,7 +33,7 @@ class DesktopHomeContent extends StatelessWidget {
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
 
-    return Container(
+    return SizedBox(
       height: height * .65,
       child: Row(children: [
         Container(
@@ -46,7 +46,7 @@ class DesktopHomeContent extends StatelessWidget {
           width: 200.0,
           decoration: BoxDecoration(
               color: Colors.white, //PARA PROBAR CONTAINER
-              borderRadius: new BorderRadius.circular(10.0),
+              borderRadius: BorderRadius.circular(10.0),
               image: const DecorationImage(
                 image: AssetImage('assets/images/yo.jpg'),
                 fit: BoxFit.cover,
@@ -74,7 +74,9 @@ class DesktopHomeContent extends StatelessWidget {
             ),
             const SizedBox(height: 24),
             const Text(
-                'asdsadsdjhasjkhdasjkdhasjdhjkadhjksdhasjdhadhadhakhdlajhdkjlasdhklajhdjahdjkahdlahsdjlkashdkjahdjkashdkjashdkjahdkjsadhlahdlasdhlkajdshaklj'),
+              'Titulado como Técnico Programador y egresado como Analista Programador. Siempre estoy dispuesto a adaptarme a diferentes lenguajes de programación y a dar lo mejor de mí. A continuación, podrás ver los proyectos y cursos que he realizado hasta el momento.',
+              style: TextStyle(fontWeight: FontWeight.normal, fontSize: 20),
+            ),
             const SizedBox(height: 24),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -135,7 +137,7 @@ class DesktopHomeContent extends StatelessWidget {
 
 class MobileHomeContent extends StatelessWidget {
   SnackBar snackBar = const SnackBar(
-    content: Text("Correo copiado con éxito!"),
+    content: Text("¡Correo copiado con éxito!"),
     duration: Duration(milliseconds: 500),
   );
 
@@ -153,8 +155,8 @@ class MobileHomeContent extends StatelessWidget {
           ),
           const SizedBox(height: 24),
           const Text(
-              'asdsadsdjhasjkhdasjkdhasjdhjkadhjksdhasjdhadhadhakhdlajhdkjlasdhklajhdjahdjkahdlahsdjlkashdkjahdjkashdkjashdkjahdkjsadhlahdlasdhlkajdshaklj'),
-          SizedBox(height: 24),
+              'Titulado como Técnico Programador y egresado como Analista Programador. Siempre estoy dispuesto a adaptarme a diferentes lenguajes de programación y a dar lo mejor de mí. A continuación, podrás ver los proyectos y cursos que he realizado hasta el momento.'),
+          const SizedBox(height: 24),
           ElevatedButton(
             onPressed: () {
               _descargarPDF('assets/pdf/cv.pdf');
@@ -200,7 +202,7 @@ class MobileHomeContent extends StatelessWidget {
             width: 200.0,
             decoration: BoxDecoration(
                 color: Colors.white, //PARA PROBAR CONTAINER
-                borderRadius: new BorderRadius.circular(10.0),
+                borderRadius: BorderRadius.circular(10.0),
                 image: const DecorationImage(
                   image: AssetImage('assets/images/yo.jpg'),
                   fit: BoxFit.cover,
@@ -221,7 +223,7 @@ class MobileHomeContent extends StatelessWidget {
 }
 
 void _descargarPDF(String filePath) {
-  final anchor = html.AnchorElement(href: filePath)
+  html.AnchorElement(href: filePath)
     ..setAttribute('download', 'cvCristianGaete.pdf')
     ..click();
 }

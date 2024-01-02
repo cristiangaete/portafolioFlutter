@@ -58,11 +58,11 @@ class MyWebPage extends HookConsumerWidget {
 
     return Scaffold(
       body: Center(
-        child: Container(
+        child: SizedBox(
           width: maxWith,
           child: Column(
             children: [
-              NavBar(),
+              const NavBar(),
               Expanded(
                   child: SingleChildScrollView(
                 controller: controller,

@@ -7,7 +7,7 @@ class ScreenshotsContents extends ResponsiveWidget {
 
   @override
   Widget buildDesktop(BuildContext context) =>
-      ScreenshotsContentResponsive(200);
+      const ScreenshotsContentResponsive(200);
 
   @override
   Widget buildMobile(BuildContext context) => MobileHomeContent();
@@ -66,7 +66,7 @@ class ScreenshotsContentResponsive extends StatelessWidget {
 class _Image extends StatelessWidget {
   final String image;
 
-  const _Image({super.key, required this.image});
+  const _Image({required this.image});
 
   @override
   Widget build(BuildContext context) {
