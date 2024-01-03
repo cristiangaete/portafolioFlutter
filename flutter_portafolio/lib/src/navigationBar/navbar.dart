@@ -154,13 +154,6 @@ class MobileNavbar extends HookConsumerWidget {
                     height: 70.0,
                   ),
                   const SizedBox(width: 10.0),
-                  // Text(
-                  //   'Cristian Gaete',
-                  //   style: TextStyle(
-                  //       fontWeight: FontWeight.w700,
-                  //       color: Colors.black87,
-                  //       fontSize: 32),
-                  // ),
                   Expanded(child: Container()),
                   Material(
                     child: InkWell(
@@ -170,7 +163,8 @@ class MobileNavbar extends HookConsumerWidget {
                       },
                       child: const Icon(
                         Icons.menu,
-                        color: Colors.black54,
+                        color: Colors.black,
+                        // size: 28,
                       ),
                     ),
                   )

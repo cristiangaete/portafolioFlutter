@@ -56,7 +56,7 @@ class DesktopHomeContent extends StatelessWidget {
               //     ),
               ElevatedButton(
                 onPressed: () {
-                  _descargarPDF('assets/pdf/cv.pdf');
+                  _descargarPDF('assets/assets/pdf/cv.pdf');
                 },
                 style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.blue.shade800,
@@ -139,7 +139,7 @@ class MobileHomeContent extends StatelessWidget {
             children: [
               ElevatedButton(
                 onPressed: () {
-                  _descargarPDF('assets/pdf/cv.pdf');
+                  _descargarPDF('assets/assets/pdf/cv.pdf');
                 },
                 style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.blue.shade800,
@@ -190,8 +190,9 @@ class MobileHomeContent extends StatelessWidget {
   }
 }
 
-void _descargarPDF(String filePath) {
-  html.AnchorElement(href: filePath)
+Future<html.AnchorElement> _descargarPDF(String filePath) async {
+  final anchor = html.AnchorElement(href: filePath)
     ..setAttribute('download', 'cvCristianGaete.pdf')
     ..click();
+  return anchor;
 }

@@ -31,7 +31,7 @@ class DesktopHomeContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
-    double width = MediaQuery.of(context).size.width;
+    // double width = MediaQuery.of(context).size.width;
 
     return SizedBox(
       height: height * .65,
@@ -86,7 +86,9 @@ class DesktopHomeContent extends StatelessWidget {
                 //     ),
                 ElevatedButton(
                   onPressed: () {
-                    _descargarPDF('assets/pdf/cv.pdf');
+                    _descargarPDF('assets/assets/pdf/cv.pdf');
+                    // html.window
+                    //     .open("assets/assets/pdf/cv.pdf", "fayyaz_resume.pdf");
                   },
                   style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.blue.shade800,
@@ -159,7 +161,8 @@ class MobileHomeContent extends StatelessWidget {
           const SizedBox(height: 24),
           ElevatedButton(
             onPressed: () {
-              _descargarPDF('assets/pdf/cv.pdf');
+              _descargarPDF('assets/assets/pdf/cv.pdf');
+              // html.window.open("assets/assets/pdf/cv.pdf", "fayyaz_resume.pdf");
             },
             style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.blue.shade800,
@@ -222,8 +225,9 @@ class MobileHomeContent extends StatelessWidget {
   }
 }
 
-void _descargarPDF(String filePath) {
-  html.AnchorElement(href: filePath)
+Future<html.AnchorElement> _descargarPDF(String filePath) async {
+  final anchor = html.AnchorElement(href: filePath)
     ..setAttribute('download', 'cvCristianGaete.pdf')
     ..click();
+  return anchor;
 }
