@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_portafolio/src/my_web_page.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-void main() {
+Future<void> main() async {
   runApp(const ProviderScope(child: MyApp()));
 }
 

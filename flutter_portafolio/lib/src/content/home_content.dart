@@ -194,20 +194,19 @@ class MobileHomeContent extends StatelessWidget {
                   icon: const Icon(SimpleIcons.github))
             ],
           ),
-          const SizedBox(height: 1),
+          const SizedBox(height: 24),
           Container(
             // width: width * .3,
-            margin: const EdgeInsets.only(
-              top: 60.0,
-              left: 20.0,
-            ),
-            height: 350.0,
-            width: 200.0,
+            // margin: const EdgeInsets.only(
+            //   top: 60.0,
+            //   left: 20.0,
+            // ),
+            height: 320.0,
+            width: 220.0,
             decoration: BoxDecoration(
-                color: Colors.white, //PARA PROBAR CONTAINER
                 borderRadius: BorderRadius.circular(10.0),
                 image: const DecorationImage(
-                  image: AssetImage('assets/images/yo.jpg'),
+                  image: AssetImage('assets/images/yomovil.jpg'),
                   fit: BoxFit.cover,
                 ),
                 boxShadow: const [

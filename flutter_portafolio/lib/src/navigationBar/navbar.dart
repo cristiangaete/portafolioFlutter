@@ -150,7 +150,7 @@ class MobileNavbar extends HookConsumerWidget {
               child: Row(
                 children: <Widget>[
                   Image.asset(
-                    'assets/images/flutterLogo.png',
+                    'assets/images/flutterLogoMovil.png',
                     height: 70.0,
                   ),
                   const SizedBox(width: 10.0),
