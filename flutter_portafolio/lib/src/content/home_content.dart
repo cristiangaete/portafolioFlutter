@@ -37,15 +37,9 @@ class DesktopHomeContent extends StatelessWidget {
       height: height * .65,
       child: Row(children: [
         Container(
-          // width: width * .3,
-          margin: const EdgeInsets.only(
-            top: 60.0,
-            left: 20.0,
-          ),
           height: 300.0,
           width: 200.0,
           decoration: BoxDecoration(
-              color: Colors.white, //PARA PROBAR CONTAINER
               borderRadius: BorderRadius.circular(10.0),
               image: const DecorationImage(
                 image: AssetImage('assets/images/yo.jpg'),
@@ -196,17 +190,12 @@ class MobileHomeContent extends StatelessWidget {
           ),
           const SizedBox(height: 24),
           Container(
-            // width: width * .3,
-            // margin: const EdgeInsets.only(
-            //   top: 60.0,
-            //   left: 20.0,
-            // ),
-            height: 320.0,
-            width: 220.0,
+            height: 310.0,
+            width: 210.0,
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10.0),
                 image: const DecorationImage(
-                  image: AssetImage('assets/images/yomovil.jpg'),
+                  image: AssetImage('assets/images/yoMovil2.jpg'),
                   fit: BoxFit.cover,
                 ),
                 boxShadow: const [

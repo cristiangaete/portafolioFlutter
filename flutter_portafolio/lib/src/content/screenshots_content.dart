@@ -6,17 +6,13 @@ class ScreenshotsContents extends ResponsiveWidget {
   const ScreenshotsContents({super.key});
 
   @override
-  Widget buildDesktop(BuildContext context) =>
-      const ScreenshotsContentResponsive(200);
+  Widget buildDesktop(BuildContext context) => ScreenshotsContentResponsive();
 
   @override
   Widget buildMobile(BuildContext context) => MobileHomeContent();
 }
 
 class ScreenshotsContentResponsive extends StatelessWidget {
-  final horizontalPadding;
-  const ScreenshotsContentResponsive(this.horizontalPadding);
-
   @override
   Widget build(BuildContext context) {
     return const Padding(
@@ -43,6 +39,8 @@ class ScreenshotsContentResponsive extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     _Image(
+                        image: 'assets/images/certificaciones/coursera4.png'),
+                    _Image(
                         image: 'assets/images/certificaciones/coursera0.png'),
                     _Image(
                         image: 'assets/images/certificaciones/coursera1.png'),
@@ -50,8 +48,6 @@ class ScreenshotsContentResponsive extends StatelessWidget {
                         image: 'assets/images/certificaciones/coursera2.png'),
                     _Image(
                         image: 'assets/images/certificaciones/coursera3.png'),
-                    _Image(
-                        image: 'assets/images/certificaciones/coursera4.png'),
                     _Image(image: 'assets/images/certificaciones/udemy0.png'),
                     _Image(image: 'assets/images/certificaciones/udemy2.png'),
                     _Image(image: 'assets/images/certificaciones/udemy1.png'),
@@ -121,21 +117,26 @@ class MobileHomeContent extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     _ImageMobile(
-                        image: 'assets/images/certificaciones/coursera0.png'),
+                        image:
+                            'assets/images/certificaciones/courseraMovil4.png'),
                     _ImageMobile(
-                        image: 'assets/images/certificaciones/coursera1.png'),
+                        image:
+                            'assets/images/certificaciones/courseraMovil3.png'),
                     _ImageMobile(
-                        image: 'assets/images/certificaciones/coursera2.png'),
+                        image:
+                            'assets/images/certificaciones/courseraMovil0.png'),
                     _ImageMobile(
-                        image: 'assets/images/certificaciones/coursera3.png'),
+                        image:
+                            'assets/images/certificaciones/courseraMovil1.png'),
                     _ImageMobile(
-                        image: 'assets/images/certificaciones/coursera4.png'),
+                        image:
+                            'assets/images/certificaciones/courseraMovil2.png'),
                     _ImageMobile(
-                        image: 'assets/images/certificaciones/udemy0.png'),
+                        image: 'assets/images/certificaciones/udemyMovil0.png'),
                     _ImageMobile(
-                        image: 'assets/images/certificaciones/udemy2.png'),
+                        image: 'assets/images/certificaciones/udemyMovil1.png'),
                     _ImageMobile(
-                        image: 'assets/images/certificaciones/udemy1.png'),
+                        image: 'assets/images/certificaciones/udemyMovil2.png'),
                     _ImageMobile(
                         image: 'assets/images/certificaciones/cGato.png'),
                   ])),
@@ -159,8 +160,8 @@ class _ImageMobile extends StatelessWidget {
           child: ClipRRect(
             borderRadius: BorderRadius.circular(16),
             child: Image.asset(
-              width: 450,
-              height: 450,
+              width: 315,
+              height: 350,
               image,
               // fit: BoxFit.cover,
             ),

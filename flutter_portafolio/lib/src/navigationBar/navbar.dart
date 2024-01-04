@@ -45,18 +45,11 @@ class DesktopNavbar extends HookConsumerWidget {
               Tooltip(
                 message: 'Este portafolio fue creado en Flutter',
                 child: Image.asset(
-                  'assets/images/flutterLogo.png',
+                  'assets/images/flutterLogoNav.png',
                   height: 80.0,
                 ),
               ),
               const SizedBox(width: 10.0),
-              // Text(
-              //   'Cristian Gaete',
-              //   style: TextStyle(
-              //       fontWeight: FontWeight.w700,
-              //       color: Colors.black87,
-              //       fontSize: 32),
-              // ),
               Expanded(child: Container()),
               NavBarBottom(
                   ontap: () =>
@@ -70,10 +63,6 @@ class DesktopNavbar extends HookConsumerWidget {
                   ontap: () =>
                       ref.read(currentPageProvider.notifier).state = featureKey,
                   text: 'Proyectos'),
-              // NavBarBottom(
-              //     ontap: () =>
-              //         ref.read(currentPageProvider.notifier).state = contactKey,
-              //     text: 'Contact'),
               ElevatedButton(
                   onPressed: () =>
                       ref.read(currentPageProvider.notifier).state = contactKey,
@@ -125,12 +114,6 @@ class MobileNavbar extends HookConsumerWidget {
                     containerHeight.value = 0;
                   },
                   text: 'Proyectos'),
-              // NavBarBottom(
-              //     ontap: () {
-              //       ref.read(currentPageProvider.notifier).state = contactKey;
-              //       containerHeight.value = 0;
-              //     },
-              //     text: 'Contact'),
               ElevatedButton(
                   onPressed: () {
                     ref.read(currentPageProvider.notifier).state = contactKey;

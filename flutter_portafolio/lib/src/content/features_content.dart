@@ -54,7 +54,7 @@ class FeaturesContentResponsive extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 _Card(
-                  localImage: 'assets/images/map.jpg',
+                  localImage: 'assets/images/map.png',
                   text: ' WebMapping U de Chile api google maps',
                   networkImage: SimpleIcons.javascript,
                   lenguaje: "JavaScript",
@@ -209,7 +209,7 @@ class MobileHomeContent extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 _CardMovile(
-                  localImage: 'assets/images/map.jpg',
+                  localImage: 'assets/images/map.png',
                   text: ' WebMapping U de Chile api google maps',
                   networkImage: SimpleIcons.javascript,
                   lenguaje: "JavaScript",
@@ -217,7 +217,7 @@ class MobileHomeContent extends StatelessWidget {
                   // networkImage2: 'assets/images/css.png'
                 ),
                 _CardMovile(
-                  localImage: 'assets/images/flutterLogo.png',
+                  localImage: 'assets/images/flutterCert.png',
                   text: 'Portafolio Flutter',
                   networkImage: SimpleIcons.flutter,
                   lenguaje: "Flutter",
@@ -238,14 +238,14 @@ class MobileHomeContent extends StatelessWidget {
                   git: "https://github.com/cristiangaete/djangoLogin",
                 ),
                 _CardMovile(
-                  localImage: 'assets/images/react.png',
+                  localImage: 'assets/images/reactMovil.png',
                   text: ' Django CRUD ReactJS',
                   networkImage: SimpleIcons.react,
                   lenguaje: "React",
                   git: "https://github.com/cristiangaete/djangoReactApp",
                 ),
                 _CardMovile(
-                  localImage: 'assets/images/bsale.png',
+                  localImage: 'assets/images/bsaleMovil.png',
                   text: 'Prueba de programación empresa Bsale',
                   networkImage: SimpleIcons.javascript,
                   lenguaje: "javascript",
