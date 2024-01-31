@@ -63,7 +63,7 @@ class DesktopHomeContent extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const Text(
-              "Cristian Gaete Jordan",
+              "Cristian Gaete Jordán",
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 40),
             ),
             const SizedBox(height: 24),
@@ -146,7 +146,7 @@ class MobileHomeContent extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           const Text(
-            "Cristian Gaete Jordan",
+            "Cristian Gaete Jordán",
             style: TextStyle(fontWeight: FontWeight.bold, fontSize: 40),
           ),
           const SizedBox(height: 24),

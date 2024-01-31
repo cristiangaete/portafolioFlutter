@@ -1,3 +1,4 @@
+import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
@@ -10,7 +11,11 @@ class NavBarBottom extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final textColor = useState<Color>(Colors.black);
-
+    if (AdaptiveTheme.of(context).mode == AdaptiveThemeMode.dark) {
+      textColor.value = Colors.white;
+    } else {
+      textColor.value = Colors.black87;
+    }
     return MouseRegion(
       onEnter: (value) {
         textColor.value = Colors.blue.shade400;

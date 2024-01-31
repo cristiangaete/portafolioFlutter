@@ -1,29 +1,36 @@
 import 'dart:ui';
 
+import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:flutter/material.dart';
+
 import 'package:flutter_portafolio/src/my_web_page.dart';
+
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 Future<void> main() async {
   runApp(const ProviderScope(child: MyApp()));
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends HookConsumerWidget {
   const MyApp({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return ProviderScope(
-        child: MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.white),
-        useMaterial3: true,
-      ),
-      home: const MyWebPage(),
-      scrollBehavior: MyCustomScrollBehavior(),
-    ));
+  Widget build(BuildContext context, WidgetRef ref) {
+    return AdaptiveTheme(
+        light: ThemeData.light(useMaterial3: true),
+        dark: ThemeData.dark(useMaterial3: true),
+        initial: AdaptiveThemeMode.light,
+        builder: (theme, darkTheme) {
+          return ProviderScope(
+              child: MaterialApp(
+            debugShowCheckedModeBanner: false,
+            title: 'Flutter Demo',
+            theme: theme,
+            darkTheme: darkTheme,
+            home: const MyWebPage(),
+            scrollBehavior: MyCustomScrollBehavior(),
+          ));
+        });
   }
 }
 

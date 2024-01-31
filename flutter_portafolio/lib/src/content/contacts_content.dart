@@ -81,24 +81,37 @@ class DesktopHomeContent extends StatelessWidget {
                     icon: const Icon(SimpleIcons.linkedin)),
               ),
               const SizedBox(height: 24),
-              Tooltip(
-                message: "Click para copiar mí correo electrónico",
-                child: IconButton(
-                    onPressed: () {
-                      Clipboard.setData(const ClipboardData(
-                              text: "cristiangaetejordan@gmail.com"))
-                          .then((value) => ScaffoldMessenger.of(context)
-                              .showSnackBar(snackBar));
-                    },
-                    icon: const Icon(Icons.mail)),
-              ),
               const SizedBox(height: 24),
               Tooltip(
                 message: 'Github',
                 child: IconButton(
                     onPressed: () => launchUrl(github),
                     icon: const Icon(SimpleIcons.github)),
-              )
+              ),
+              Tooltip(
+                message: 'Correo',
+                child: IconButton(
+                    onPressed: () {
+                      // Clipboard.setData(const ClipboardData(
+                      //         text: "cristiangaetejordan@gmail.com"))
+                      //     .then((value) => ScaffoldMessenger.of(context)
+                      //         .showSnackBar(snackBar));
+                    },
+                    icon: const Icon(Icons.mail)),
+              ),
+              const Text('cristiangaetejordan@gmail.com'),
+              Tooltip(
+                message: "Click para copiar mí correo electrónico",
+                child: IconButton(
+                  icon: const Icon(Icons.copy),
+                  onPressed: () {
+                    Clipboard.setData(const ClipboardData(
+                            text: "cristiangaetejordan@gmail.com"))
+                        .then((value) => ScaffoldMessenger.of(context)
+                            .showSnackBar(snackBar));
+                  },
+                ),
+              ),
             ],
           ),
         ],
@@ -181,7 +194,7 @@ class MobileHomeContent extends StatelessWidget {
                 child: IconButton(
                     onPressed: () => launchUrl(github),
                     icon: const Icon(SimpleIcons.github)),
-              )
+              ),
             ],
           ),
         ],

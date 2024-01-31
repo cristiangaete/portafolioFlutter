@@ -1,9 +1,13 @@
+import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:flutter/material.dart';
 // ignore: depend_on_referenced_packages
 import 'package:flutter_hooks/flutter_hooks.dart';
+
 import 'package:flutter_portafolio/src/my_web_page.dart';
 import 'package:flutter_portafolio/src/navigationBar/navbar_bottom.dart';
 import 'package:flutter_portafolio/src/widget/responsive_widget.dart';
+
+import 'package:flutter_switch/flutter_switch.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class NavBar extends ResponsiveWidget {
@@ -28,51 +32,86 @@ class DesktopNavbar extends HookConsumerWidget {
     final isCrolled = ref.watch(scrolledProvider);
     final navBarColor = isCrolled ? Colors.white : Colors.white;
 
-    return Container(
-      //  color: navBarColor,
-      decoration: BoxDecoration(color: navBarColor, boxShadow: [
-        BoxShadow(
-          color: Colors.grey.withOpacity(0.5),
-          offset: const Offset(0, 2),
-          blurRadius: 2,
-          spreadRadius: 0,
-        ),
-      ]),
-      child: Padding(
-          padding: const EdgeInsets.all(10),
-          child: Row(
-            children: [
-              Tooltip(
-                message: 'Este portafolio fue creado en Flutter',
-                child: Image.asset(
-                  'assets/images/flutterLogoNav.png',
-                  height: 80.0,
-                ),
+    return Padding(
+        padding: const EdgeInsets.all(10),
+        child: Row(
+          children: [
+            Tooltip(
+              message: 'Este portafolio fue creado en Flutter',
+              child: Image.asset(
+                'assets/images/flutterLogoNav.png',
+                height: 80.0,
               ),
-              const SizedBox(width: 10.0),
-              Expanded(child: Container()),
-              NavBarBottom(
-                  ontap: () =>
-                      ref.read(currentPageProvider.notifier).state = homeKey,
-                  text: 'Home'),
-              NavBarBottom(
-                  ontap: () => ref.read(currentPageProvider.notifier).state =
-                      screenshotsKey,
-                  text: 'Certificaciones'),
-              NavBarBottom(
-                  ontap: () =>
-                      ref.read(currentPageProvider.notifier).state = featureKey,
-                  text: 'Proyectos'),
-              ElevatedButton(
-                  onPressed: () =>
-                      ref.read(currentPageProvider.notifier).state = contactKey,
-                  style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.blue.shade800,
-                      foregroundColor: Colors.white),
-                  child: const Text('Contacto'))
-            ],
-          )),
-    );
+            ),
+            const SizedBox(width: 10.0),
+            Expanded(child: Container()),
+            const SwitchIcon(),
+
+            NavBarBottom(
+                ontap: () =>
+                    ref.read(currentPageProvider.notifier).state = homeKey,
+                text: 'Home'),
+            NavBarBottom(
+                ontap: () => ref.read(currentPageProvider.notifier).state =
+                    screenshotsKey,
+                text: 'Certificaciones'),
+            NavBarBottom(
+                ontap: () =>
+                    ref.read(currentPageProvider.notifier).state = featureKey,
+                text: 'Proyectos'),
+            ElevatedButton(
+                onPressed: () =>
+                    ref.read(currentPageProvider.notifier).state = contactKey,
+                style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.blue.shade800,
+                    foregroundColor: Colors.white),
+                child: const Text('Contacto')),
+            // Switch(
+            //     value:
+            //         AdaptiveTheme.of(context).mode == AdaptiveThemeMode.dark,
+            //     onChanged: (value) {
+            //       if (value) {
+            //         AdaptiveTheme.of(context).setDark();
+            //       } else {
+            //         AdaptiveTheme.of(context).setLight();
+            //       }
+            //     })
+            // const ChangueIcons(),
+          ],
+        ));
+  }
+}
+
+class SwitchIcon extends StatelessWidget {
+  const SwitchIcon({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return FlutterSwitch(
+        width: 60.0,
+        height: 30.0,
+        valueFontSize: 20.0,
+        toggleSize: 22.0,
+        activeColor: const Color.fromRGBO(96, 159, 241, 1),
+        // inactiveColor: const Color.fromARGB(164, 19, 13, 13),
+        activeIcon: const Icon(
+          Icons.nightlight_round,
+          color: Color.fromARGB(255, 100, 100, 98),
+        ),
+        inactiveIcon: const Icon(
+          Icons.wb_sunny,
+          color: Color(0xFFFFDF5D),
+        ),
+        value: AdaptiveTheme.of(context).mode == AdaptiveThemeMode.dark,
+        onToggle: (val) {
+          if (val) {
+            AdaptiveTheme.of(context).setDark();
+          } else {
+            AdaptiveTheme.of(context).setLight();
+          }
+        });
   }
 }
 
@@ -84,6 +123,8 @@ class MobileNavbar extends HookConsumerWidget {
     final containerHeight = useState<double>(0.0);
     final isCrolled = ref.watch(scrolledProvider);
     final navBarColor = isCrolled ? Colors.white : Colors.white;
+    bool isIconChanged =
+        AdaptiveTheme.of(context).mode == AdaptiveThemeMode.dark;
 
     return Stack(
       children: [
@@ -122,12 +163,16 @@ class MobileNavbar extends HookConsumerWidget {
                   style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.blue.shade800,
                       foregroundColor: Colors.white),
-                  child: const Text('Contacto'))
+                  child: const Text('Contacto')),
+              const SizedBox(height: 15.0),
+              const SwitchIcon(),
+
+              // const ChangueIcons(),
             ]),
           ),
         ),
         Container(
-          color: navBarColor,
+          // color: navBarColor,
           child: Padding(
               padding: const EdgeInsets.all(16),
               child: Row(
@@ -146,7 +191,7 @@ class MobileNavbar extends HookConsumerWidget {
                       },
                       child: const Icon(
                         Icons.menu,
-                        color: Colors.black,
+                        // color: Colors.black,
                         // size: 28,
                       ),
                     ),
@@ -158,3 +203,36 @@ class MobileNavbar extends HookConsumerWidget {
     );
   }
 }
+
+// class ChangueIcons extends StatefulWidget {
+//   const ChangueIcons({super.key});
+
+//   @override
+//   State<ChangueIcons> createState() => _ChangueIconsState();
+// }
+
+// class _ChangueIconsState extends State<ChangueIcons> {
+//   bool isIconChanged = false;
+//   @override
+//   Widget build(BuildContext context) {
+//     return IconButton(
+//       icon: isIconChanged
+//           ? const Icon(Icons.nightlight_round)
+//           : const Icon(Icons.wb_sunny),
+//       onPressed: () {
+//         setState(() {
+//           if (isIconChanged) {
+//             print('ENTRO AL dark');
+//             print(isIconChanged);
+//             AdaptiveTheme.of(context).setDark();
+//           } else {
+//             print('ENTRO AL light');
+//             print(isIconChanged);
+//             AdaptiveTheme.of(context).setLight();
+//           }
+//           isIconChanged = !isIconChanged;
+//         });
+//       },
+//     );
+//   }
+// }
