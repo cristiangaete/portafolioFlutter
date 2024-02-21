@@ -1,4 +1,3 @@
-import 'package:easy_image_viewer/easy_image_viewer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_portafolio/src/widget/responsive_widget.dart';
 import 'package:insta_image_viewer/insta_image_viewer.dart';
@@ -14,28 +13,55 @@ class ScreenshotsContents extends ResponsiveWidget {
 }
 
 class ScreenshotsContentResponsive extends StatelessWidget {
+  final ScrollController _scrollController = ScrollController();
   @override
   Widget build(BuildContext context) {
-    return const Padding(
-      padding: EdgeInsets.symmetric(vertical: 48, horizontal: 24),
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 48, horizontal: 24),
       child: Column(
         children: [
-          Padding(
-            padding: EdgeInsets.only(top: 20.0, left: 20.0),
-            child: Align(
-              alignment: Alignment.topLeft,
-              child: Text(
-                'Certificaciones',
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 40),
+          Row(
+            children: [
+              const Padding(
+                padding: EdgeInsets.only(top: 20.0, left: 20.0),
+                child: Align(
+                  alignment: Alignment.topLeft,
+                  child: Text(
+                    'Certificaciones',
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 40),
+                  ),
+                ),
               ),
-            ),
+              const Expanded(child: Row()),
+              ArrowButton(
+                scrollController: _scrollController,
+                direction: ArrowDirection.left,
+              ),
+              ArrowButton(
+                scrollController: _scrollController,
+                direction: ArrowDirection.right,
+              ),
+            ],
           ),
-          SizedBox(
-            height: 24,
-          ),
+
+          // Row(children: [
+          //   const Expanded(child: Row()),
+          //   ArrowButton(
+          //     scrollController: _scrollController,
+          //     direction: ArrowDirection.left,
+          //   ),
+          //   ArrowButton(
+          //     scrollController: _scrollController,
+          //     direction: ArrowDirection.right,
+          //   ),
+          // ]),
+          // const SizedBox(
+          //   height: 1,
+          // ),
           SingleChildScrollView(
               scrollDirection: Axis.horizontal,
-              child: Row(
+              controller: _scrollController,
+              child: const Row(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -76,7 +102,7 @@ class _Image extends StatelessWidget {
               borderRadius: BorderRadius.circular(16),
               child: Image.asset(
                 width: 800,
-                height: 800,
+                height: 730,
                 image,
                 // fit: BoxFit.cover,
               ),
@@ -88,6 +114,43 @@ class _Image extends StatelessWidget {
         ],
       );
     });
+  }
+}
+
+enum ArrowDirection { left, right }
+
+class ArrowButton extends StatelessWidget {
+  final ArrowDirection direction;
+  final ScrollController scrollController;
+
+  const ArrowButton(
+      {super.key, required this.direction, required this.scrollController});
+
+  @override
+  Widget build(BuildContext context) {
+    return IconButton(
+      icon: Icon(
+        direction == ArrowDirection.left
+            ? Icons.arrow_back_ios_new
+            : Icons.arrow_forward_ios,
+      ),
+      onPressed: () {
+        // Desplaza hacia la izquierda o derecha según la dirección del botón
+        if (direction == ArrowDirection.left) {
+          scrollController.animateTo(
+            scrollController.offset - 2000.0, // Ajusta según tus necesidades
+            duration: const Duration(seconds: 1),
+            curve: Curves.easeInOut,
+          );
+        } else {
+          scrollController.animateTo(
+            scrollController.offset + 2000.0, // Ajusta según tus necesidades
+            duration: const Duration(seconds: 1),
+            curve: Curves.easeInOut,
+          );
+        }
+      },
+    );
   }
 }
 

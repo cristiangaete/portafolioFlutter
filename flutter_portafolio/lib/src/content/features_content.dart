@@ -10,17 +10,19 @@ class FeaturesContent extends ResponsiveWidget {
   const FeaturesContent({super.key});
 
   @override
-  Widget buildDesktop(BuildContext context) =>
-      const FeaturesContentResponsive(horizontalPadding: 200);
+  Widget buildDesktop(BuildContext context) => FeaturesContentResponsive();
 
   @override
   Widget buildMobile(BuildContext context) => MobileHomeContent();
 }
 
 class FeaturesContentResponsive extends StatelessWidget {
-  final horizontalPadding;
+  // final horizontalPadding;
 
-  const FeaturesContentResponsive({super.key, this.horizontalPadding});
+  // const FeaturesContentResponsive({super.key, this.horizontalPadding});
+  final ScrollController _scrollController = ScrollController();
+
+  FeaturesContentResponsive({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -30,26 +32,40 @@ class FeaturesContentResponsive extends StatelessWidget {
     //   'assets/images/css.png'
     // ];
 
-    return const Padding(
+    return Padding(
       padding: EdgeInsets.symmetric(vertical: 48, horizontal: 24),
       child: Column(
         children: [
-          Padding(
-            padding: EdgeInsets.only(top: 20.0, left: 20.0),
-            child: Align(
-              alignment: Alignment.topLeft,
-              child: Text(
-                'Proyectos',
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 40),
+          Row(
+            children: [
+              const Padding(
+                padding: EdgeInsets.only(top: 20.0, left: 20.0),
+                child: Align(
+                  alignment: Alignment.topLeft,
+                  child: Text(
+                    'Proyectos',
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 40),
+                  ),
+                ),
               ),
-            ),
+              const Expanded(child: Row()),
+              ArrowButton(
+                scrollController: _scrollController,
+                direction: ArrowDirection.left,
+              ),
+              ArrowButton(
+                scrollController: _scrollController,
+                direction: ArrowDirection.right,
+              ),
+            ],
           ),
-          SizedBox(
+          const SizedBox(
             height: 24,
           ),
           SingleChildScrollView(
             scrollDirection: Axis.horizontal,
-            child: Row(
+            controller: _scrollController,
+            child: const Row(
               mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -179,6 +195,43 @@ class _Card extends StatelessWidget {
         width: 16,
       ),
     ]);
+  }
+}
+
+enum ArrowDirection { left, right }
+
+class ArrowButton extends StatelessWidget {
+  final ArrowDirection direction;
+  final ScrollController scrollController;
+
+  const ArrowButton(
+      {super.key, required this.direction, required this.scrollController});
+
+  @override
+  Widget build(BuildContext context) {
+    return IconButton(
+      icon: Icon(
+        direction == ArrowDirection.left
+            ? Icons.arrow_back_ios_new
+            : Icons.arrow_forward_ios,
+      ),
+      onPressed: () {
+        // Desplaza hacia la izquierda o derecha según la dirección del botón
+        if (direction == ArrowDirection.left) {
+          scrollController.animateTo(
+            scrollController.offset - 2000.0, // Ajusta según tus necesidades
+            duration: const Duration(seconds: 1),
+            curve: Curves.easeInOut,
+          );
+        } else {
+          scrollController.animateTo(
+            scrollController.offset + 2000.0, // Ajusta según tus necesidades
+            duration: const Duration(seconds: 1),
+            curve: Curves.easeInOut,
+          );
+        }
+      },
+    );
   }
 }
 

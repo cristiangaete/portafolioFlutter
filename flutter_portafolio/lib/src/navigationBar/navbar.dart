@@ -164,7 +164,7 @@ class MobileNavbar extends HookConsumerWidget {
                       backgroundColor: Colors.blue.shade800,
                       foregroundColor: Colors.white),
                   child: const Text('Contacto')),
-              const SizedBox(height: 15.0),
+              const SizedBox(height: 5.0),
               const SwitchIcon(),
 
               // const ChangueIcons(),

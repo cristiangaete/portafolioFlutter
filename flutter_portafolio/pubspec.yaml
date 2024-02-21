@@ -44,7 +44,9 @@ dependencies:
   insta_image_viewer: ^1.0.2
   adaptive_theme: ^3.5.0
   flutter_switch: ^0.3.2
-  easy_image_viewer: ^1.4.0
+  flutter_image_compress: ^2.1.0
+  
+  
 
 
   # The following adds the Cupertino Icons font to your application.
