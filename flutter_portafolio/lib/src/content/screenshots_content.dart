@@ -202,7 +202,7 @@ class MobileHomeContent extends StatelessWidget {
                     _ImageMobile(
                         image: 'assets/images/certificaciones/udemyMovil2.png'),
                     _ImageMobile(
-                        image: 'assets/images/certificaciones/cGato.png'),
+                        image: 'assets/images/certificaciones/cGatoMovil.png'),
                   ])),
         ],
       ),
@@ -219,7 +219,7 @@ class _ImageMobile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        const SizedBox(width: 16),
+        // const SizedBox(width: 16),
         InstaImageViewer(
           child: ClipRRect(
             borderRadius: BorderRadius.circular(16),

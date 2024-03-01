@@ -1,10 +1,7 @@
 // ignore_for_file: must_be_immutable
 
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_image_compress/flutter_image_compress.dart';
 
 import 'package:flutter_portafolio/src/widget/responsive_widget.dart';
 import 'package:simple_icons/simple_icons.dart';
@@ -202,6 +199,7 @@ class MobileHomeContent extends StatelessWidget {
                 image: AssetImage('assets/images/yoMovil2.jpg'),
                 fit: BoxFit.cover,
               ),
+
               // boxShadow: const [
               //   BoxShadow(
               //     //SOMBRA
@@ -218,41 +216,9 @@ class MobileHomeContent extends StatelessWidget {
   }
 }
 
-// class LubanEx extends StatefulWidget {
-//   const LubanEx({super.key});
-
-//   @override
-//   State<LubanEx> createState() => _LubanExState();
-// }
-
-// class _LubanExState extends State<LubanEx> {
-//   @override
-//   Widget build(BuildContext context) {
-//     return ElevatedButton(
-//         onPressed: () async {
-//           String imagePath = "assets/images/yoMovil2.jpg";
-//           File imageFile = File(imagePath);
-//           CompressObject compressObject = CompressObject(
-//             imageFile: imageFile, //image
-//             path: imagePath, //compress to path
-//             quality: 85, //first compress quality, default 80
-//             step:
-//                 9, //compress quality step, The bigger the fast, Smaller is more accurate, default 6
-//             mode: CompressMode.LARGE2SMALL, //default AUTO
-//           );
-//           Luban.compressImage(compressObject).then((_path) {
-//             setState(() {
-//               print(_path);
-//             });
-//           });
-//         },
-//         child: Text('Comprimir Imagen'));
-//   }
-// }
-
 Future<html.AnchorElement> _descargarPDF(String filePath) async {
   final anchor = html.AnchorElement(href: filePath)
-    ..setAttribute('download', 'cvCristianGaete.pdf')
+    ..setAttribute('download', 'CristianGaete_cv.pdf')
     ..click();
   return anchor;
 }

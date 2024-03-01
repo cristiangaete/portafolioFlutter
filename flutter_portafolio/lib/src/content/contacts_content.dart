@@ -205,7 +205,7 @@ class MobileHomeContent extends StatelessWidget {
 
 Future<html.AnchorElement> _descargarPDF(String filePath) async {
   final anchor = html.AnchorElement(href: filePath)
-    ..setAttribute('download', 'cvCristianGaete.pdf')
+    ..setAttribute('download', 'CristianGaete_cv.pdf')
     ..click();
   return anchor;
 }

@@ -70,6 +70,14 @@ class FeaturesContentResponsive extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 _Card(
+                  localImage: 'assets/images/nest.jpg',
+                  text: 'Backend Nest con Autenticación, Roles, crud y TypeOrm',
+                  networkImage: SimpleIcons.nestjs,
+                  lenguaje: "TypeScript",
+                  git: 'https://github.com/cristiangaete/nestBiblioteca',
+                  // networkImage2: 'assets/images/css.png'
+                ),
+                _Card(
                   localImage: 'assets/images/map.png',
                   text: ' WebMapping U de Chile api google maps',
                   networkImage: SimpleIcons.javascript,
@@ -219,13 +227,13 @@ class ArrowButton extends StatelessWidget {
         // Desplaza hacia la izquierda o derecha según la dirección del botón
         if (direction == ArrowDirection.left) {
           scrollController.animateTo(
-            scrollController.offset - 2000.0, // Ajusta según tus necesidades
+            scrollController.offset - 2500.0, // Ajusta según tus necesidades
             duration: const Duration(seconds: 1),
             curve: Curves.easeInOut,
           );
         } else {
           scrollController.animateTo(
-            scrollController.offset + 2000.0, // Ajusta según tus necesidades
+            scrollController.offset + 2500.0, // Ajusta según tus necesidades
             duration: const Duration(seconds: 1),
             curve: Curves.easeInOut,
           );
@@ -236,6 +244,8 @@ class ArrowButton extends StatelessWidget {
 }
 
 class MobileHomeContent extends StatelessWidget {
+  const MobileHomeContent({super.key});
+
   @override
   Widget build(BuildContext context) {
     return const Padding(
@@ -262,12 +272,18 @@ class MobileHomeContent extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 _CardMovile(
+                  localImage: 'assets/images/nestMovil.jpg',
+                  text: 'Backend Nest con Autenticación, Roles, crud y TypeOrm',
+                  networkImage: SimpleIcons.nestjs,
+                  lenguaje: "TypeScript",
+                  git: 'https://github.com/cristiangaete/nestBiblioteca',
+                ),
+                _CardMovile(
                   localImage: 'assets/images/map.png',
                   text: ' WebMapping U de Chile api google maps',
                   networkImage: SimpleIcons.javascript,
                   lenguaje: "JavaScript",
                   git: 'https://github.com/cristiangaete/MapaJs',
-                  // networkImage2: 'assets/images/css.png'
                 ),
                 _CardMovile(
                   localImage: 'assets/images/flutterCert.png',
@@ -383,9 +399,9 @@ class _CardMovile extends StatelessWidget {
           ),
         ),
       ),
-      const SizedBox(
-        width: 16,
-      ),
+      // const SizedBox(
+      //   width: 100,
+      // ),
     ]);
   }
 }
