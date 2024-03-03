@@ -24,7 +24,7 @@ class MyApp extends HookConsumerWidget {
           return ProviderScope(
               child: MaterialApp(
             debugShowCheckedModeBanner: false,
-            title: 'Flutter Demo',
+            title: 'Flutter Portafolio',
             theme: theme,
             darkTheme: darkTheme,
             home: const MyWebPage(),

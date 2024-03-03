@@ -1,5 +1,6 @@
 // ignore_for_file: must_be_immutable
 
+import 'package:animated_glitch/animated_glitch.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -37,23 +38,39 @@ class DesktopHomeContent extends StatelessWidget {
     return SizedBox(
       height: height * .65,
       child: Row(children: [
-        Container(
+        // Container(
+        //   height: 300.0,
+        //   width: 200.0,
+        //   decoration: BoxDecoration(
+        //       borderRadius: BorderRadius.circular(10.0),
+        //       image: const DecorationImage(
+        //         image: AssetImage('assets/images/yo.jpg'),
+        //         fit: BoxFit.cover,
+        //       ),
+        //       boxShadow: const [
+        //         BoxShadow(
+        //           //SOMBRA
+        //           color: Color(0xffA4A4A4),
+        //           offset: Offset(1.0, 5.0),
+        //           blurRadius: 3.0,
+        //         ),
+        //       ]),
+
+        // ),
+        SizedBox(
           height: 300.0,
           width: 200.0,
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10.0),
-              image: const DecorationImage(
-                image: AssetImage('assets/images/yo.jpg'),
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(10.0),
+            child: AnimatedGlitch.shader(
+              child: Image.asset(
+                'assets/images/yo.jpg',
                 fit: BoxFit.cover,
+                height: double.infinity,
+                width: double.infinity,
               ),
-              boxShadow: const [
-                BoxShadow(
-                  //SOMBRA
-                  color: Color(0xffA4A4A4),
-                  offset: Offset(1.0, 5.0),
-                  blurRadius: 3.0,
-                ),
-              ]),
+            ),
+          ),
         ),
         const SizedBox(
           width: 24,
@@ -190,26 +207,41 @@ class MobileHomeContent extends StatelessWidget {
             ],
           ),
           const SizedBox(height: 24),
-          Container(
+          // Container(
+          //   height: 310.0,
+          //   width: 210.0,
+          //   decoration: BoxDecoration(
+          //     borderRadius: BorderRadius.circular(10.0),
+          //     image: const DecorationImage(
+          //       image: AssetImage('assets/images/yoMovil2.jpg'),
+          //       fit: BoxFit.cover,
+          //     ),
+
+          //     // boxShadow: const [
+          //     //   BoxShadow(
+          //     //     //SOMBRA
+          //     //     color: Color(0xffA4A4A4),
+          //     //     offset: Offset(1.0, 5.0),
+          //     //     blurRadius: 3.0,
+          //     //   ),
+          //     // ]
+          //   ),
+          // ),
+          SizedBox(
             height: 310.0,
             width: 210.0,
-            decoration: BoxDecoration(
+            child: ClipRRect(
               borderRadius: BorderRadius.circular(10.0),
-              image: const DecorationImage(
-                image: AssetImage('assets/images/yoMovil2.jpg'),
-                fit: BoxFit.cover,
+              child: AnimatedGlitch.shader(
+                child: Image.asset(
+                  'assets/images/yoMovil2.jpg',
+                  fit: BoxFit.cover,
+                  height: double.infinity,
+                  width: double.infinity,
+                ),
               ),
-
-              // boxShadow: const [
-              //   BoxShadow(
-              //     //SOMBRA
-              //     color: Color(0xffA4A4A4),
-              //     offset: Offset(1.0, 5.0),
-              //     blurRadius: 3.0,
-              //   ),
-              // ]
             ),
-          )
+          ),
         ],
       ),
     );

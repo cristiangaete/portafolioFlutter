@@ -44,7 +44,7 @@ dependencies:
   insta_image_viewer: ^1.0.2
   adaptive_theme: ^3.5.0
   flutter_switch: ^0.3.2
-  flutter_image_compress: ^2.1.0
+  animated_glitch: ^2.0.0+2
   
   
 
@@ -70,6 +70,8 @@ dev_dependencies:
 # The following section is specific to Flutter packages.
 flutter:
 
+  
+
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
@@ -81,6 +83,8 @@ flutter:
     - assets/images/certificaciones/
     - assets/pdf/
     # - images/a_dot_ham.jpeg
+  shaders: 
+    - 'packages/animated_glitch/shader/glitch.frag'
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
