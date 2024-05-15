@@ -5,6 +5,7 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 
 import 'package:flutter_portafolio/src/my_web_page.dart';
 import 'package:flutter_portafolio/src/navigationBar/navbar_bottom.dart';
+import 'package:flutter_portafolio/src/widget/change_theme.dart';
 import 'package:flutter_portafolio/src/widget/responsive_widget.dart';
 
 import 'package:flutter_switch/flutter_switch.dart';
@@ -164,8 +165,8 @@ class MobileNavbar extends HookConsumerWidget {
                       backgroundColor: Colors.blue.shade800,
                       foregroundColor: Colors.white),
                   child: const Text('Contacto')),
-              const SizedBox(height: 5.0),
-              const SwitchIcon(),
+              // const SizedBox(height: 5.0),
+              // const SwitchIcon(),
 
               // const ChangueIcons(),
             ]),
@@ -183,10 +184,11 @@ class MobileNavbar extends HookConsumerWidget {
                   ),
                   const SizedBox(width: 10.0),
                   Expanded(child: Container()),
+                  const ChangeTheme(),
                   Material(
                     child: InkWell(
                       onTap: () {
-                        final height = containerHeight.value > 0 ? 0.0 : 240.0;
+                        final height = containerHeight.value > 0 ? 0.0 : 200.0;
                         containerHeight.value = height;
                       },
                       child: const Icon(
@@ -203,36 +205,3 @@ class MobileNavbar extends HookConsumerWidget {
     );
   }
 }
-
-// class ChangueIcons extends StatefulWidget {
-//   const ChangueIcons({super.key});
-
-//   @override
-//   State<ChangueIcons> createState() => _ChangueIconsState();
-// }
-
-// class _ChangueIconsState extends State<ChangueIcons> {
-//   bool isIconChanged = false;
-//   @override
-//   Widget build(BuildContext context) {
-//     return IconButton(
-//       icon: isIconChanged
-//           ? const Icon(Icons.nightlight_round)
-//           : const Icon(Icons.wb_sunny),
-//       onPressed: () {
-//         setState(() {
-//           if (isIconChanged) {
-//             print('ENTRO AL dark');
-//             print(isIconChanged);
-//             AdaptiveTheme.of(context).setDark();
-//           } else {
-//             print('ENTRO AL light');
-//             print(isIconChanged);
-//             AdaptiveTheme.of(context).setLight();
-//           }
-//           isIconChanged = !isIconChanged;
-//         });
-//       },
-//     );
-//   }
-// }

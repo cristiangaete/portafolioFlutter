@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_portafolio/src/enum/arrow_direction.dart';
+import 'package:flutter_portafolio/src/widget/arrow_button_certificate.dart';
 import 'package:flutter_portafolio/src/widget/responsive_widget.dart';
 import 'package:insta_image_viewer/insta_image_viewer.dart';
 
@@ -114,43 +116,6 @@ class _Image extends StatelessWidget {
         ],
       );
     });
-  }
-}
-
-enum ArrowDirection { left, right }
-
-class ArrowButton extends StatelessWidget {
-  final ArrowDirection direction;
-  final ScrollController scrollController;
-
-  const ArrowButton(
-      {super.key, required this.direction, required this.scrollController});
-
-  @override
-  Widget build(BuildContext context) {
-    return IconButton(
-      icon: Icon(
-        direction == ArrowDirection.left
-            ? Icons.arrow_back_ios_new
-            : Icons.arrow_forward_ios,
-      ),
-      onPressed: () {
-        // Desplaza hacia la izquierda o derecha según la dirección del botón
-        if (direction == ArrowDirection.left) {
-          scrollController.animateTo(
-            scrollController.offset - 2000.0, // Ajusta según tus necesidades
-            duration: const Duration(seconds: 1),
-            curve: Curves.easeInOut,
-          );
-        } else {
-          scrollController.animateTo(
-            scrollController.offset + 2000.0, // Ajusta según tus necesidades
-            duration: const Duration(seconds: 1),
-            curve: Curves.easeInOut,
-          );
-        }
-      },
-    );
   }
 }
 

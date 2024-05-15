@@ -19,7 +19,7 @@ class MyApp extends HookConsumerWidget {
     return AdaptiveTheme(
         light: ThemeData.light(useMaterial3: true),
         dark: ThemeData.dark(useMaterial3: true),
-        initial: AdaptiveThemeMode.light,
+        initial: AdaptiveThemeMode.dark,
         builder: (theme, darkTheme) {
           return ProviderScope(
               child: MaterialApp(

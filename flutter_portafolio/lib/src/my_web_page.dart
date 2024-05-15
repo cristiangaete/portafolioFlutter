@@ -1,10 +1,8 @@
-import "dart:js_interop";
-
 import "package:flutter/material.dart";
 import "package:flutter_portafolio/src/content/contacts_content.dart";
-import "package:flutter_portafolio/src/content/features_content.dart";
+import 'package:flutter_portafolio/src/content/proyects_content.dart';
 import "package:flutter_portafolio/src/content/home_content.dart";
-import "package:flutter_portafolio/src/content/screenshots_content.dart";
+import 'package:flutter_portafolio/src/content/certificates_content.dart';
 import "package:flutter_portafolio/src/navigationBar/navbar.dart";
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
