@@ -11,11 +11,13 @@ class ScreenshotsContents extends ResponsiveWidget {
   Widget buildDesktop(BuildContext context) => ScreenshotsContentResponsive();
 
   @override
-  Widget buildMobile(BuildContext context) => MobileHomeContent();
+  Widget buildMobile(BuildContext context) => const MobileHomeContent();
 }
 
 class ScreenshotsContentResponsive extends StatelessWidget {
   final ScrollController _scrollController = ScrollController();
+
+  ScreenshotsContentResponsive({super.key});
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -120,6 +122,8 @@ class _Image extends StatelessWidget {
 }
 
 class MobileHomeContent extends StatelessWidget {
+  const MobileHomeContent({super.key});
+
   @override
   Widget build(BuildContext context) {
     return const Padding(

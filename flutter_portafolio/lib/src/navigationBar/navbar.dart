@@ -1,4 +1,3 @@
-import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:flutter/material.dart';
 // ignore: depend_on_referenced_packages
 import 'package:flutter_hooks/flutter_hooks.dart';
@@ -7,8 +6,8 @@ import 'package:flutter_portafolio/src/my_web_page.dart';
 import 'package:flutter_portafolio/src/navigationBar/navbar_bottom.dart';
 import 'package:flutter_portafolio/src/widget/change_theme.dart';
 import 'package:flutter_portafolio/src/widget/responsive_widget.dart';
+import 'package:flutter_portafolio/src/widget/switch_icon.dart';
 
-import 'package:flutter_switch/flutter_switch.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class NavBar extends ResponsiveWidget {
@@ -30,8 +29,8 @@ class DesktopNavbar extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final isCrolled = ref.watch(scrolledProvider);
-    final navBarColor = isCrolled ? Colors.white : Colors.white;
+    // final isCrolled = ref.watch(scrolledProvider);
+    // final navBarColor = isCrolled ? Colors.white : Colors.white;
 
     return Padding(
         padding: const EdgeInsets.all(10),
@@ -83,49 +82,16 @@ class DesktopNavbar extends HookConsumerWidget {
   }
 }
 
-class SwitchIcon extends StatelessWidget {
-  const SwitchIcon({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return FlutterSwitch(
-        width: 60.0,
-        height: 30.0,
-        valueFontSize: 20.0,
-        toggleSize: 22.0,
-        activeColor: const Color.fromRGBO(96, 159, 241, 1),
-        // inactiveColor: const Color.fromARGB(164, 19, 13, 13),
-        activeIcon: const Icon(
-          Icons.nightlight_round,
-          color: Color.fromARGB(255, 100, 100, 98),
-        ),
-        inactiveIcon: const Icon(
-          Icons.wb_sunny,
-          color: Color(0xFFFFDF5D),
-        ),
-        value: AdaptiveTheme.of(context).mode == AdaptiveThemeMode.dark,
-        onToggle: (val) {
-          if (val) {
-            AdaptiveTheme.of(context).setDark();
-          } else {
-            AdaptiveTheme.of(context).setLight();
-          }
-        });
-  }
-}
-
 class MobileNavbar extends HookConsumerWidget {
   const MobileNavbar({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final containerHeight = useState<double>(0.0);
-    final isCrolled = ref.watch(scrolledProvider);
-    final navBarColor = isCrolled ? Colors.white : Colors.white;
-    bool isIconChanged =
-        AdaptiveTheme.of(context).mode == AdaptiveThemeMode.dark;
+    // final isCrolled = ref.watch(scrolledProvider);
+    // final navBarColor = isCrolled ? Colors.white : Colors.white;
+    // bool isIconChanged =
+    //     AdaptiveTheme.of(context).mode == AdaptiveThemeMode.dark;
 
     return Stack(
       children: [
@@ -172,35 +138,34 @@ class MobileNavbar extends HookConsumerWidget {
             ]),
           ),
         ),
-        Container(
-          // color: navBarColor,
-          child: Padding(
-              padding: const EdgeInsets.all(16),
-              child: Row(
-                children: <Widget>[
-                  Image.asset(
-                    'assets/images/flutterLogoMovil.png',
-                    height: 70.0,
-                  ),
-                  const SizedBox(width: 10.0),
-                  Expanded(child: Container()),
-                  const ChangeTheme(),
-                  Material(
-                    child: InkWell(
-                      onTap: () {
-                        final height = containerHeight.value > 0 ? 0.0 : 200.0;
-                        containerHeight.value = height;
-                      },
-                      child: const Icon(
-                        Icons.menu,
-                        // color: Colors.black,
-                        // size: 28,
-                      ),
+        Padding(
+            padding: const EdgeInsets.all(16),
+            child: Row(
+              children: [
+                Image.asset(
+                  'assets/images/flutterLogoMovil.png',
+                  height: 70.0,
+                ),
+                // const SizedBox(width: 1.0),
+                // Expanded(child: Container()),
+                const Spacer(),
+
+                const ChangeTheme(),
+                Material(
+                  child: InkWell(
+                    onTap: () {
+                      final height = containerHeight.value > 0 ? 0.0 : 200.0;
+                      containerHeight.value = height;
+                    },
+                    child: const Icon(
+                      Icons.menu,
+                      // color: Colors.black,
+                      // size: 28,
                     ),
-                  )
-                ],
-              )),
-        )
+                  ),
+                )
+              ],
+            ))
       ],
     );
   }

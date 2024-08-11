@@ -232,13 +232,11 @@ class MobileHomeContent extends StatelessWidget {
             width: 210.0,
             child: ClipRRect(
               borderRadius: BorderRadius.circular(10.0),
-              child: AnimatedGlitch.shader(
-                child: Image.asset(
-                  'assets/images/yoMovil2.jpg',
-                  fit: BoxFit.cover,
-                  height: double.infinity,
-                  width: double.infinity,
-                ),
+              child: Image.asset(
+                'assets/images/yoMovil2.jpg',
+                fit: BoxFit.cover,
+                height: double.infinity,
+                width: double.infinity,
               ),
             ),
           ),

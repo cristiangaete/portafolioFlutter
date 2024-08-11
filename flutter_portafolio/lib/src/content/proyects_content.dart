@@ -15,7 +15,7 @@ class FeaturesContent extends ResponsiveWidget {
   Widget buildDesktop(BuildContext context) => FeaturesContentResponsive();
 
   @override
-  Widget buildMobile(BuildContext context) => MobileHomeContent();
+  Widget buildMobile(BuildContext context) => const MobileHomeContent();
 }
 
 class FeaturesContentResponsive extends StatelessWidget {
@@ -72,12 +72,20 @@ class FeaturesContentResponsive extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 _Card(
+                  localImage: 'assets/images/democount.png',
+                  text: 'Demo de proyecto contable creado en Flutter',
+                  networkImage: SimpleIcons.flutter,
+                  lenguaje: "Flutter",
+                  git: 'https://contcgj.netlify.app/',
+                  iconData: SimpleIcons.brave,
+                ),
+                _Card(
                   localImage: 'assets/images/nest.jpg',
                   text: 'Backend Nest con Autenticación, Roles, crud y TypeOrm',
                   networkImage: SimpleIcons.nestjs,
                   lenguaje: "TypeScript",
                   git: 'https://github.com/cristiangaete/nestBiblioteca',
-                  // networkImage2: 'assets/images/css.png'
+                  iconData: SimpleIcons.github,
                 ),
                 _Card(
                   localImage: 'assets/images/map.png',
@@ -85,7 +93,7 @@ class FeaturesContentResponsive extends StatelessWidget {
                   networkImage: SimpleIcons.javascript,
                   lenguaje: "JavaScript",
                   git: 'https://github.com/cristiangaete/MapaJs',
-                  // networkImage2: 'assets/images/css.png'
+                  iconData: SimpleIcons.github,
                 ),
                 _Card(
                   localImage: 'assets/images/flutterLogo.png',
@@ -93,6 +101,7 @@ class FeaturesContentResponsive extends StatelessWidget {
                   networkImage: SimpleIcons.flutter,
                   lenguaje: "Flutter",
                   git: "https://github.com/cristiangaete/portafolioFlutter",
+                  iconData: SimpleIcons.github,
                 ),
                 _Card(
                   localImage: 'assets/images/flutter0.png',
@@ -100,6 +109,7 @@ class FeaturesContentResponsive extends StatelessWidget {
                   networkImage: SimpleIcons.springboot,
                   lenguaje: "Spring Boot",
                   git: "https://github.com/cristiangaete/crudSpringBoot",
+                  iconData: SimpleIcons.github,
                 ),
                 _Card(
                   localImage: 'assets/images/dj.png',
@@ -107,6 +117,7 @@ class FeaturesContentResponsive extends StatelessWidget {
                   networkImage: SimpleIcons.django,
                   lenguaje: "Django",
                   git: "https://github.com/cristiangaete/djangoLogin",
+                  iconData: SimpleIcons.github,
                 ),
                 _Card(
                   localImage: 'assets/images/react.png',
@@ -114,6 +125,7 @@ class FeaturesContentResponsive extends StatelessWidget {
                   networkImage: SimpleIcons.react,
                   lenguaje: "React",
                   git: "https://github.com/cristiangaete/djangoReactApp",
+                  iconData: SimpleIcons.github,
                 ),
                 _Card(
                   localImage: 'assets/images/bsale.png',
@@ -121,6 +133,7 @@ class FeaturesContentResponsive extends StatelessWidget {
                   networkImage: SimpleIcons.javascript,
                   lenguaje: "javascript",
                   git: "https://github.com/cristiangaete/frontendBsale",
+                  iconData: SimpleIcons.github,
                 ),
               ],
             ),
@@ -135,15 +148,16 @@ class _Card extends StatelessWidget {
   final String localImage;
   final String? text;
   final IconData? networkImage;
+  final IconData? iconData;
   final String? lenguaje;
   final String? git;
   const _Card({
-    super.key,
     required this.localImage,
     this.text,
     this.networkImage,
     this.lenguaje,
     this.git,
+    this.iconData,
   });
 
   @override
@@ -158,17 +172,18 @@ class _Card extends StatelessWidget {
         child: Card(
           child: Column(
             mainAxisSize: MainAxisSize.min,
-            children: <Widget>[
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
               SizedBox(
                 height: 300.0,
-                width: 400.0,
+                width: 450.0,
                 child: Image(
                   image: AssetImage(localImage),
                   fit: BoxFit.cover,
                 ),
               ),
-              Align(
-                alignment: Alignment.topLeft,
+              Padding(
+                padding: const EdgeInsets.fromLTRB(12, 15, 12, 12),
                 child: Text(
                   'Proyecto: ${text!}',
                   style: const TextStyle(
@@ -188,9 +203,9 @@ class _Card extends StatelessWidget {
                     child: Icon(networkImage),
                   ),
                   Tooltip(
-                    message: "Github",
+                    message: "Enlace",
                     child: IconButton(
-                      icon: const Icon(SimpleIcons.github),
+                      icon: Icon(iconData),
                       onPressed: () => launchUrl(Uri.parse(git!)),
                     ),
                   ),
@@ -237,11 +252,20 @@ class MobileHomeContent extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 _CardMovile(
+                  localImage: 'assets/images/democountMovil.png',
+                  text: 'Demo de proyecto contable creado en Flutter',
+                  networkImage: SimpleIcons.flutter,
+                  lenguaje: "Flutter",
+                  git: 'https://contcgj.netlify.app/',
+                  iconData: SimpleIcons.brave,
+                ),
+                _CardMovile(
                   localImage: 'assets/images/nestMovil.jpg',
                   text: 'Backend Nest con Autenticación, Roles, crud y TypeOrm',
                   networkImage: SimpleIcons.nestjs,
                   lenguaje: "TypeScript",
                   git: 'https://github.com/cristiangaete/nestBiblioteca',
+                  iconData: SimpleIcons.github,
                 ),
                 _CardMovile(
                   localImage: 'assets/images/map.png',
@@ -249,6 +273,7 @@ class MobileHomeContent extends StatelessWidget {
                   networkImage: SimpleIcons.javascript,
                   lenguaje: "JavaScript",
                   git: 'https://github.com/cristiangaete/MapaJs',
+                  iconData: SimpleIcons.github,
                 ),
                 _CardMovile(
                   localImage: 'assets/images/flutterCert.png',
@@ -256,6 +281,7 @@ class MobileHomeContent extends StatelessWidget {
                   networkImage: SimpleIcons.flutter,
                   lenguaje: "Flutter",
                   git: "https://github.com/cristiangaete/portafolioFlutter",
+                  iconData: SimpleIcons.github,
                 ),
                 _CardMovile(
                   localImage: 'assets/images/flutter0.png',
@@ -263,6 +289,7 @@ class MobileHomeContent extends StatelessWidget {
                   networkImage: SimpleIcons.springboot,
                   lenguaje: "Spring Boot",
                   git: "https://github.com/cristiangaete/crudSpringBoot",
+                  iconData: SimpleIcons.github,
                 ),
                 _CardMovile(
                   localImage: 'assets/images/dj.png',
@@ -270,6 +297,7 @@ class MobileHomeContent extends StatelessWidget {
                   networkImage: SimpleIcons.django,
                   lenguaje: "Django",
                   git: "https://github.com/cristiangaete/djangoLogin",
+                  iconData: SimpleIcons.github,
                 ),
                 _CardMovile(
                   localImage: 'assets/images/reactMovil.png',
@@ -277,6 +305,7 @@ class MobileHomeContent extends StatelessWidget {
                   networkImage: SimpleIcons.react,
                   lenguaje: "React",
                   git: "https://github.com/cristiangaete/djangoReactApp",
+                  iconData: SimpleIcons.github,
                 ),
                 _CardMovile(
                   localImage: 'assets/images/bsaleMovil.png',
@@ -284,6 +313,7 @@ class MobileHomeContent extends StatelessWidget {
                   networkImage: SimpleIcons.javascript,
                   lenguaje: "javascript",
                   git: "https://github.com/cristiangaete/frontendBsale",
+                  iconData: SimpleIcons.github,
                 ),
               ],
             ),
@@ -298,15 +328,16 @@ class _CardMovile extends StatelessWidget {
   final String localImage;
   final String? text;
   final IconData? networkImage;
+  final IconData? iconData;
   final String? lenguaje;
   final String? git;
   const _CardMovile({
-    super.key,
     required this.localImage,
     this.text,
     this.networkImage,
     this.lenguaje,
     this.git,
+    this.iconData,
   });
 
   @override
@@ -316,12 +347,13 @@ class _CardMovile extends StatelessWidget {
         width: 16,
       ),
       SizedBox(
-        width: 300,
+        width: 270,
         height: 350,
         child: Card(
           child: Column(
             mainAxisSize: MainAxisSize.min,
-            children: <Widget>[
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
               SizedBox(
                 height: 200.0,
                 width: 300.0,
@@ -330,8 +362,8 @@ class _CardMovile extends StatelessWidget {
                   fit: BoxFit.cover,
                 ),
               ),
-              Align(
-                alignment: Alignment.topLeft,
+              Padding(
+                padding: const EdgeInsets.fromLTRB(12, 0, 12, 12),
                 child: Text(
                   'Proyecto: ${text!}',
                   style: const TextStyle(
@@ -353,7 +385,7 @@ class _CardMovile extends StatelessWidget {
                   Tooltip(
                     message: "Github",
                     child: IconButton(
-                      icon: const Icon(SimpleIcons.github),
+                      icon: Icon(iconData),
                       onPressed: () => launchUrl(Uri.parse(git!)),
                     ),
                   ),
