@@ -62,17 +62,18 @@ class MyWebPage extends HookConsumerWidget {
             children: [
               const NavBar(),
               Expanded(
-                  child: SingleChildScrollView(
-                controller: controller,
-                child: Column(
-                  children: <Widget>[
-                    HomeContent(key: homeKey),
-                    ScreenshotsContents(key: screenshotsKey),
-                    FeaturesContent(key: featureKey),
-                    ContactsContent(key: contactKey),
-                  ],
+                child: SingleChildScrollView(
+                  controller: controller,
+                  child: Column(
+                    children: [
+                      HomeContent(key: homeKey),
+                      ScreenshotsContents(key: screenshotsKey),
+                      FeaturesContent(key: featureKey),
+                      ContactsContent(key: contactKey),
+                    ],
+                  ),
                 ),
-              ))
+              )
             ],
           ),
         ),
