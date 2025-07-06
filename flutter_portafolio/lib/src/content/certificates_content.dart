@@ -15,7 +15,8 @@ class ScreenshotsContents extends ResponsiveWidget {
 }
 
 class ScreenshotsContentResponsive extends StatelessWidget {
-  final ScrollController _scrollController = ScrollController();
+  // final ScrollController _scrollController = ScrollController();
+  final CarouselController _carouselController = CarouselController();
 
   ScreenshotsContentResponsive({super.key});
   @override
@@ -38,52 +39,51 @@ class ScreenshotsContentResponsive extends StatelessWidget {
               ),
               const Expanded(child: Row()),
               ArrowButton(
-                scrollController: _scrollController,
+                scrollController: _carouselController,
                 direction: ArrowDirection.left,
               ),
               ArrowButton(
-                scrollController: _scrollController,
+                scrollController: _carouselController,
                 direction: ArrowDirection.right,
               ),
             ],
           ),
-
-          // Row(children: [
-          //   const Expanded(child: Row()),
-          //   ArrowButton(
-          //     scrollController: _scrollController,
-          //     direction: ArrowDirection.left,
-          //   ),
-          //   ArrowButton(
-          //     scrollController: _scrollController,
-          //     direction: ArrowDirection.right,
-          //   ),
-          // ]),
-          // const SizedBox(
-          //   height: 1,
+          SizedBox(
+            height: 700,
+            child: CarouselView(
+                controller: _carouselController,
+                enableSplash: false,
+                itemSnapping: true,
+                itemExtent: 850,
+                shrinkExtent: 200,
+                children: const [
+                  _Image(image: 'assets/images/certificaciones/coursera4.png'),
+                  _Image(image: 'assets/images/certificaciones/coursera0.png'),
+                  _Image(image: 'assets/images/certificaciones/coursera1.png'),
+                  _Image(image: 'assets/images/certificaciones/coursera2.png'),
+                  _Image(image: 'assets/images/certificaciones/coursera3.png'),
+                  _Image(image: 'assets/images/certificaciones/udemy0.png'),
+                  _Image(image: 'assets/images/certificaciones/udemy2.png'),
+                  _Image(image: 'assets/images/certificaciones/udemy1.png'),
+                  _Image(image: 'assets/images/certificaciones/cGato.png'),
+                ]),
+          )
+          // const Row(
+          //   mainAxisSize: MainAxisSize.max,
+          //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          //   children: [
+          //     _Image(image: 'assets/images/certificaciones/coursera4.png'),
+          //     _Image(image: 'assets/images/certificaciones/coursera0.png'),
+          //     _Image(image: 'assets/images/certificaciones/coursera1.png'),
+          //     _Image(image: 'assets/images/certificaciones/coursera2.png'),
+          //     _Image(image: 'assets/images/certificaciones/coursera3.png'),
+          //     _Image(image: 'assets/images/certificaciones/udemy0.png'),
+          //     _Image(image: 'assets/images/certificaciones/udemy2.png'),
+          //     _Image(image: 'assets/images/certificaciones/udemy1.png'),
+          //     _Image(image: 'assets/images/certificaciones/cGato.png'),
+          //   ],
           // ),
-          SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              controller: _scrollController,
-              child: const Row(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    _Image(
-                        image: 'assets/images/certificaciones/coursera4.png'),
-                    _Image(
-                        image: 'assets/images/certificaciones/coursera0.png'),
-                    _Image(
-                        image: 'assets/images/certificaciones/coursera1.png'),
-                    _Image(
-                        image: 'assets/images/certificaciones/coursera2.png'),
-                    _Image(
-                        image: 'assets/images/certificaciones/coursera3.png'),
-                    _Image(image: 'assets/images/certificaciones/udemy0.png'),
-                    _Image(image: 'assets/images/certificaciones/udemy2.png'),
-                    _Image(image: 'assets/images/certificaciones/udemy1.png'),
-                    _Image(image: 'assets/images/certificaciones/cGato.png'),
-                  ])),
+          // ),
         ],
       ),
     );
@@ -98,24 +98,16 @@ class _Image extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(builder: (context, contrains) {
-      return Row(
-        children: [
-          const SizedBox(width: 16),
-          InstaImageViewer(
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(16),
-              child: Image.asset(
-                width: 800,
-                height: 730,
-                image,
-                // fit: BoxFit.cover,
-              ),
-            ),
+      return InstaImageViewer(
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(16),
+          child: Image.asset(
+            image,
+            width: 800,
+            height: 730,
+            fit: BoxFit.contain, // Evita overflow y mantiene proporción
           ),
-          const SizedBox(
-            width: 16,
-          ),
-        ],
+        ),
       );
     });
   }
@@ -143,36 +135,63 @@ class MobileHomeContent extends StatelessWidget {
           SizedBox(
             height: 24,
           ),
-          SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Row(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          // SingleChildScrollView(
+          //   scrollDirection: Axis.horizontal,
+          //   child: Row(
+          //     mainAxisSize: MainAxisSize.max,
+          //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          //     children: [
+          //       _ImageMobile(
+          //           image: 'assets/images/certificaciones/courseraMovil4.png'),
+          //       _ImageMobile(
+          //           image: 'assets/images/certificaciones/courseraMovil3.png'),
+          //       _ImageMobile(
+          //           image: 'assets/images/certificaciones/courseraMovil0.png'),
+          //       _ImageMobile(
+          //           image: 'assets/images/certificaciones/courseraMovil1.png'),
+          //       _ImageMobile(
+          //           image: 'assets/images/certificaciones/courseraMovil2.png'),
+          //       _ImageMobile(
+          //           image: 'assets/images/certificaciones/udemyMovil0.png'),
+          //       _ImageMobile(
+          //           image: 'assets/images/certificaciones/udemyMovil1.png'),
+          //       _ImageMobile(
+          //           image: 'assets/images/certificaciones/udemyMovil2.png'),
+          //       _ImageMobile(
+          //           image: 'assets/images/certificaciones/cGatoMovil.png'),
+          //     ],
+          //   ),
+          // ),
+          Center(
+            child: SizedBox(
+              height: 300,
+              child: CarouselView(
+                  enableSplash: false,
+                  itemSnapping: true,
+                  itemExtent: 300,
+                  shrinkExtent: 200,
                   children: [
                     _ImageMobile(
-                        image:
-                            'assets/images/certificaciones/courseraMovil4.png'),
+                        image: 'assets/images/certificaciones/coursera4.png'),
                     _ImageMobile(
-                        image:
-                            'assets/images/certificaciones/courseraMovil3.png'),
+                        image: 'assets/images/certificaciones/coursera0.png'),
                     _ImageMobile(
-                        image:
-                            'assets/images/certificaciones/courseraMovil0.png'),
+                        image: 'assets/images/certificaciones/coursera1.png'),
                     _ImageMobile(
-                        image:
-                            'assets/images/certificaciones/courseraMovil1.png'),
+                        image: 'assets/images/certificaciones/coursera2.png'),
                     _ImageMobile(
-                        image:
-                            'assets/images/certificaciones/courseraMovil2.png'),
+                        image: 'assets/images/certificaciones/coursera3.png'),
                     _ImageMobile(
-                        image: 'assets/images/certificaciones/udemyMovil0.png'),
+                        image: 'assets/images/certificaciones/udemy0.png'),
                     _ImageMobile(
-                        image: 'assets/images/certificaciones/udemyMovil1.png'),
+                        image: 'assets/images/certificaciones/udemy2.png'),
                     _ImageMobile(
-                        image: 'assets/images/certificaciones/udemyMovil2.png'),
+                        image: 'assets/images/certificaciones/udemy1.png'),
                     _ImageMobile(
-                        image: 'assets/images/certificaciones/cGatoMovil.png'),
-                  ])),
+                        image: 'assets/images/certificaciones/cGato.png'),
+                  ]),
+            ),
+          )
         ],
       ),
     );
@@ -186,24 +205,16 @@ class _ImageMobile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        // const SizedBox(width: 16),
-        InstaImageViewer(
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(16),
-            child: Image.asset(
-              width: 315,
-              height: 350,
-              image,
-              // fit: BoxFit.cover,
-            ),
-          ),
+    return InstaImageViewer(
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(16),
+        child: Image.asset(
+          width: 315,
+          height: 350,
+          image,
+          // fit: BoxFit.cover,
         ),
-        const SizedBox(
-          width: 16,
-        ),
-      ],
+      ),
     );
   }
 }

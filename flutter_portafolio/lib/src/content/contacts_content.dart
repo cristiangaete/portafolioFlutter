@@ -104,11 +104,14 @@ class DesktopHomeContent extends StatelessWidget {
                 message: "Click para copiar mí correo electrónico",
                 child: IconButton(
                   icon: const Icon(Icons.copy),
-                  onPressed: () {
-                    Clipboard.setData(const ClipboardData(
-                            text: "cristiangaetejordan@gmail.com"))
-                        .then((value) => ScaffoldMessenger.of(context)
-                            .showSnackBar(snackBar));
+                  onPressed: () async {
+                    await Clipboard.setData(const ClipboardData(
+                      text: "cristiangaetejordan@gmail.com",
+                    ));
+
+                    if (!context.mounted) return;
+
+                    ScaffoldMessenger.of(context).showSnackBar(snackBar);
                   },
                 ),
               ),
@@ -180,11 +183,14 @@ class MobileHomeContent extends StatelessWidget {
               Tooltip(
                 message: "Click para copiar mí correo electrónico",
                 child: IconButton(
-                    onPressed: () {
-                      Clipboard.setData(const ClipboardData(
-                              text: "cristiangaetejordan@gmail.com"))
-                          .then((value) => ScaffoldMessenger.of(context)
-                              .showSnackBar(snackBar));
+                    onPressed: () async {
+                      await Clipboard.setData(const ClipboardData(
+                        text: "cristiangaetejordan@gmail.com",
+                      ));
+
+                      if (!context.mounted) return;
+
+                      ScaffoldMessenger.of(context).showSnackBar(snackBar);
                     },
                     icon: const Icon(Icons.mail)),
               ),

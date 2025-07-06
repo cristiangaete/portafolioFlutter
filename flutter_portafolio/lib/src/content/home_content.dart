@@ -126,11 +126,14 @@ class DesktopHomeContent extends StatelessWidget {
                 Tooltip(
                   message: "Click para copiar mí correo electrónico",
                   child: IconButton(
-                      onPressed: () {
-                        Clipboard.setData(const ClipboardData(
-                                text: "cristiangaetejordan@gmail.com"))
-                            .then((value) => ScaffoldMessenger.of(context)
-                                .showSnackBar(snackBar));
+                      onPressed: () async {
+                        await Clipboard.setData(const ClipboardData(
+                          text: "cristiangaetejordan@gmail.com",
+                        ));
+
+                        if (!context.mounted) return;
+
+                        ScaffoldMessenger.of(context).showSnackBar(snackBar);
                       },
                       icon: const Icon(Icons.mail)),
                 ),
@@ -192,11 +195,14 @@ class MobileHomeContent extends StatelessWidget {
               Tooltip(
                 message: "Click para copiar mí correo electrónico",
                 child: IconButton(
-                    onPressed: () {
-                      Clipboard.setData(const ClipboardData(
-                              text: "cristiangaetejordan@gmail.com"))
-                          .then((value) => ScaffoldMessenger.of(context)
-                              .showSnackBar(snackBar));
+                    onPressed: () async {
+                      await Clipboard.setData(const ClipboardData(
+                        text: "cristiangaetejordan@gmail.com",
+                      ));
+
+                      if (!context.mounted) return;
+
+                      ScaffoldMessenger.of(context).showSnackBar(snackBar);
                     },
                     icon: const Icon(Icons.mail)),
               ),
@@ -229,11 +235,11 @@ class MobileHomeContent extends StatelessWidget {
           // ),
           SizedBox(
             height: 310.0,
-            width: 210.0,
+            width: 230.0,
             child: ClipRRect(
               borderRadius: BorderRadius.circular(10.0),
               child: Image.asset(
-                'assets/images/yoMovil2.jpg',
+                'assets/images/yoMovil3.webp',
                 fit: BoxFit.cover,
                 height: double.infinity,
                 width: double.infinity,
